@@ -2,6 +2,9 @@
 // Filbane til JSON-filen som inneholder romdata
 $filbane = 'rom_data.json';
 
+
+//kommentar 
+
 // Funksjon for å lese romdata fra filen
 function lesRomData($filbane) {
     if (file_exists($filbane)) {
@@ -11,6 +14,14 @@ function lesRomData($filbane) {
         return []; // Returner en tom array hvis filen ikke finnes
     }
 }
+
+//bare en kommentar
+function enfunksjon( 
+){
+
+}
+
+
 
 // Funksjon for å skrive oppdaterte romdata til filen
 function skrivRomData($filbane, $romdata) {
