@@ -1,4 +1,7 @@
 <?php
+/* Beskrivelse av filen*/
+
+
 // Filbane til JSON-filen som inneholder romdata
 $filbane = 'rom_data.json';
 
