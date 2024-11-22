@@ -1,7 +1,7 @@
 [
     {
         "Romnummer": "101",
-        "Type": "Enkeltroms",
+        "Type": "Enkeltrom",
         "Status": "Ledig"
     },
     {
@@ -26,7 +26,7 @@
     },
     {
         "Romnummer": "201",
-        "Type": "Enkeltroms",
+        "Type": "Enkeltrom",
         "Status": "Opptatt"
     },
     {
