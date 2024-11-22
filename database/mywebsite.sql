@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22. Nov, 2024 13:34 PM
+-- Generation Time: 22. Nov, 2024 13:43 PM
 -- Tjener-versjon: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,6 +40,26 @@ CREATE TABLE `admin_cred` (
 INSERT INTO `admin_cred` (`sr_no`, `admin_name`, `admin_pass`) VALUES
 (1, 'admin', '12345');
 
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur for tabell `settings`
+--
+
+CREATE TABLE `settings` (
+  `sr_no` int(11) NOT NULL,
+  `site_title` varchar(50) NOT NULL,
+  `site_about` varchar(250) NOT NULL,
+  `shutdown` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dataark for tabell `settings`
+--
+
+INSERT INTO `settings` (`sr_no`, `site_title`, `site_about`, `shutdown`) VALUES
+(1, 'hello ', 'world!!!!!!', 0);
+
 --
 -- Indexes for dumped tables
 --
@@ -51,6 +71,12 @@ ALTER TABLE `admin_cred`
   ADD PRIMARY KEY (`sr_no`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`sr_no`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -59,6 +85,12 @@ ALTER TABLE `admin_cred`
 --
 ALTER TABLE `admin_cred`
   MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
