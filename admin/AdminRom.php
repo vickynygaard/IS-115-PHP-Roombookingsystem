@@ -1,11 +1,29 @@
 <?php
+require('inc/essentials.php');
+adminLogin();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Dashboard</title>
+    <?php require('inc/links.php'); ?>
+</head>
+<body class="bg-light">
+
+<?php require('inc/header.php');?>
+
+<div class="container-fluid" id="main-content">
+    <div class="row">
+        <div class="col-lg-10 ms-auto p-4 overflow-hidden">
+
+<?php
 /* Beskrivelse av filen*/
 
-// Filbane til JSON-filen som inneholder romdata
+// Matrisen til JSON-filen som inneholder romdata
 $filbane = 'rom_data.json';
-
-
-//kommentar 
 
 // Funksjon for å lese romdata fra filen
 function lesRomData($filbane) {
@@ -17,14 +35,6 @@ function lesRomData($filbane) {
     }
 }
 
-//bare en kommentar
-function enfunksjon( 
-){
-
-}
-
-
-
 // Funksjon for å skrive oppdaterte romdata til filen
 function skrivRomData($filbane, $romdata) {
     $data = json_encode($romdata, JSON_PRETTY_PRINT);
@@ -35,7 +45,7 @@ function skrivRomData($filbane, $romdata) {
 $rom = lesRomData($filbane);
 
 // Standard passord for å tillate redigering
-$korrrekt_passord = '1234';
+$korrrekt_passord = '12345';
 $kan_redigere = false; // Gjør at du ikke kan redigere om det er default
 
 // Sjekk om skjemaet er sendt inn
@@ -67,7 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sjekk om "Logg ut"-knappen er trykket
     if (isset($_POST['logout'])) {
         $kan_redigere = false; // Deaktiver redigering
-        // Ingen lagring eller oppdatering, bare gå tilbake til tabellen
     }
 }
 
@@ -90,7 +99,7 @@ function skrivUtTabell($romEtasje, $kan_redigere, $etasjenavn) {
     if (!empty($romEtasje)) { // sjekker om romEtasje ikke er tom
         echo "<tr>";
         foreach (array_keys(reset($romEtasje)) as $header) {
-            echo "<th>" . htmlspecialchars($header) . "</th>";
+            echo "<th style='padding: 10px;'>" . htmlspecialchars($header) . "</th>"; // Added padding for column spacing
         }
         echo "</tr>";
 
@@ -98,12 +107,12 @@ function skrivUtTabell($romEtasje, $kan_redigere, $etasjenavn) {
         foreach ($romEtasje as $index => $r) {
             echo "<tr>";
             // Vis romnummer og type som ikke-redigerbare tekstfelt
-            echo "<td>" . htmlspecialchars($r['Romnummer']) . "</td>";
-            echo "<td>" . htmlspecialchars($r['Type']) . "</td>";
+            echo "<td style='padding: 10px;'>" . htmlspecialchars($r['Romnummer']) . "</td>"; // Added padding for column spacing
+            echo "<td style='padding: 10px;'>" . htmlspecialchars($r['Type']) . "</td>"; // Added padding for column spacing
 
             if ($kan_redigere) {
                 // Bare status kan redigeres hvis passordet er riktig
-                echo "<td>
+                echo "<td style='padding: 10px;'>
                         <select name='status[$index]'>
                             <option value='Ledig'" . ($r['Status'] == 'Ledig' ? ' selected' : '') . ">Ledig</option>
                             <option value='Opptatt'" . ($r['Status'] == 'Opptatt' ? ' selected' : '') . ">Opptatt</option>
@@ -111,7 +120,7 @@ function skrivUtTabell($romEtasje, $kan_redigere, $etasjenavn) {
                       </td>";
             } else {
                 // Viser status som tekst dersom passord er feil eller ingen passord
-                echo "<td>" . htmlspecialchars($r['Status']) . "</td>";
+                echo "<td style='padding: 10px;'>" . htmlspecialchars($r['Status']) . "</td>"; // Added padding for column spacing
             }
             echo "</tr>";
         }
@@ -133,3 +142,11 @@ if ($kan_redigere) {
 echo "</form>";
 echo "</div>";
 ?>
+        </div>
+    </div>
+</div>
+
+<?php require('inc/scripts.php'); ?>
+
+</body>
+</html>
