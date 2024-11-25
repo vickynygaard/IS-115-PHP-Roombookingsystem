@@ -1,4 +1,5 @@
 
+
 :root{
   --teal: #2ec1ac;
   --teal_hover: #279e8c;
@@ -73,6 +74,7 @@
   #dashboard-menu{
     position: fixed;
     height: 100%;
+    z-index: 11;
   }
 
   @media screen and (max-width: 991px) {
@@ -85,4 +87,6 @@
   #main-content{
     margin-top: 60px;
   }
+
+  
 
