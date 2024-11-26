@@ -44,13 +44,13 @@ $RULES = [
     ],
     'phone' => [
         'value' => '',
-        'validering' => "/^\+?[0-9\s\-\(\)]*$/", //Telefonnummer regex
+        'validering' => "/^\+?[0-9\s\-\(\)]*$/", //Telefonnummer regex: tillater +()-, mellomrom, og siffer mellom 0-9
         'required' => true,
         'error_message_key' => 'phone',
     ],
     'password' => [
         'value' => '',
-        'validering' => "/^(?=.*[A-Z])(?=.*[0-9]).{8,}$/", //Passord regex
+        'validering' => "/^(?=.*[A-Z])(?=.*[0-9]).{8,}$/", //Passord regex: minst 8 tegn, og minst en stor bokstav og et siffer
         'required' => true,
         'error_message_key' => 'password',
     ]
