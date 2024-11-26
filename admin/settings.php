@@ -8,7 +8,7 @@ adminLogin();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Dashboard</title>
+    <title>Admin Panel - General Settings</title>
     <?php require('inc/links.php'); ?>
 
     <link rel="stylesheet" href="css/common.css">
@@ -24,20 +24,26 @@ adminLogin();
         <div class="col-lg-10 ms-auto p-4 overflow-hidden">
              <h3 class="mb-4">SETTINGS</h3>   
 
-<!--General settings section-->
-
+<!-- General Settings Section -->
 <div class="card border-0 shadow-sm mb-4">
- <div class="card-body">
+  <div class="card-body">
     <div class="d-flex align-items-center justify-content-between mb-3">
-        <h5 class="card-title m-0">General Settings</h5>
-<button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#general-s">
-<i class="bi bi-pencil-square"></i>Edit
-</button>
+      <h5 class="card-title m-0">General Settings</h5>
+      <button type="button" 
+              class="btn btn-dark shadow-none btn-sm" 
+              data-bs-toggle="modal" 
+              data-bs-target="#general-s">
+        <i class="bi bi-pencil-square"></i> Edit
+      </button>
     </div>
-    <h6 class="card-subtitle mb-1 fw-bold">Site Title</h6>
-    <p class="card-text" id="site_title"></p>
-    <h6 class="card-subtitle mb-1 fw-bold">About Us</h6>
-    <p class="card-text" id="site_about"></p>
+    <div class="mb-2">
+      <h6 class="card-subtitle mb-1 fw-bold">Site Title</h6>
+      <p class="card-text" id="site_title"></p>
+    </div>
+    <div>
+      <h6 class="card-subtitle mb-1 fw-bold">About Us</h6>
+      <p class="card-text" id="site_about"></p>
+    </div>
   </div>
 </div>
 
@@ -69,22 +75,27 @@ adminLogin();
   </div>
 </div>
 
-<!--Shutdown section -->
+<!-- Shutdown Section -->
 <div class="card border-0 shadow-sm mb-4">
- <div class="card-body">
+  <div class="card-body">
     <div class="d-flex align-items-center justify-content-between mb-3">
-        <h5 class="card-title m-0">Shutdown Website</h5>
-        <div class="form-check form-switch">
-            <form>
-            <input onchange="upd_shutdown(this.checked ? 1 : 0)" class="form-check-input" type="checkbox" id="shutdown-toggle">
-            </form>
+      <h5 class="card-title m-0">Shutdown Website</h5>
+      <div class="form-check form-switch">
+        <form>
+          <input 
+            class="form-check-input" 
+            type="checkbox" 
+            id="shutdown-toggle" 
+            onchange="upd_shutdown(this.checked ? 1 : 0)">
+        </form>
+      </div>
     </div>
-    </div>
-    <p class="card-text"> 
-        No customers will be allowed to book hotel room, when shutdown mode is turned on.
-</p>
+    <p class="card-text">
+      No customers will be allowed to book hotel rooms when shutdown mode is turned on.
+    </p>
   </div>
 </div>
+
 
 <!-- Contact details section -->
 <div class="card border-0 shadow-sm mb-4">
@@ -216,29 +227,34 @@ adminLogin();
   </div>
 </div>
 
+<!-- Management Team Section -->
 <div class="card border-0 shadow-sm mb-4">
- <div class="card-body">
+  <div class="card-body">
     <div class="d-flex align-items-center justify-content-between mb-3">
-        <h5 class="card-title m-0">Management Team</h5>
-        <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#team-s">
-            <i class="bi bi-plus-square"></i>Add
-        </button>
+      <h5 class="card-title m-0">Management Team</h5>
+      <button 
+        type="button" 
+        class="btn btn-dark shadow-none btn-sm" 
+        data-bs-toggle="modal" 
+        data-bs-target="#team-s">
+        <i class="bi bi-plus-square"></i>Add
+      </button>
     </div>
     
-  
     <div class="row" id="team-data">
       <div class="col-md-2 mb-3">
-      <div class="card text-bg-dark">
-  <img src="..." class="card-img">
-  <div class="card-img-overlay">
-    <p class="card-text"><small>Last updated 3 mins ago</small></p>
-  </div>
-</div>
+        <div class="card text-bg-dark">
+          <img src="..." class="card-img" alt="Team Member Image">
+          <div class="card-img-overlay">
+            <p class="card-text">
+              <small>Last updated 3 mins ago</small>
+            </p>
+          </div>
+        </div>
       </div>
-
     </div>
 
-</div>
+  </div>
 </div>
 
 
@@ -270,261 +286,8 @@ adminLogin();
   </div>
 </div>
 
-
-
-
-</div>
-</div>
-</div>
-
-
-
     <?php require('inc/scripts.php'); ?>
-    <script>
-        let general_data, contacts_data;
-
-        let general_s_form = document.getElementById('general_s_form');
-        let site_title_inp = document.getElementById('site_title_inp');
-        let site_about_inp = document.getElementById('site_about_inp');
-
-        let contacts_s_form = document.getElementById('contacts_s_form');
-
-        let team_s_form = document.getElementById('team_s_form');
-        let member_name_inp = document.getElementById('member_name_inp');
-        let member_picture_inp = document.getElementById('member_picture_inp');
-
-
-        function get_general()
-        {
-            let site_title = document.getElementById('site_title');
-            let site_about = document.getElementById('site_about');
-
-            let shutdown_toggle = document.getElementById('shutdown-toggle');
-
-            let xhr= new XMLHttpRequest();
-            xhr.open("POST", "ajax/settings_crud.php", true);
-            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-
-            xhr.onload = function(){
-                general_data = JSON.parse(this.responseText);
-
-                site_title.innerText = general_data.site_title;
-                site_about.innerText = general_data.site_about;
-
-                site_title_inp.value = general_data.site_title;
-                site_about_inp.value = general_data.site_about;
-
-                if(general_data.shutdown == 0){
-                 shutdown_toggle.checked = false;
-                 shutdown_toggle.value = 0;  
-                }
-                else {
-                shutdown_toggle.checked = true;
-                shutdown_toggle.value = 1;  
-                }
-            }        
-
-            xhr.send('get_general');
-        }
-
-        general_s_form.addEventListener('submit', function(e){
-            e.preventDefault();
-            upd_general(site_title_inp.value,site_about_inp.value);
-
-        })
-
-        function upd_general(site_title_val,site_about_val)
-        {
-            let xhr= new XMLHttpRequest();
-            xhr.open("POST", "ajax/settings_crud.php", true);
-            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-
-            xhr.onload = function(){
-                var myModal = document.getElementById('general-s');
-                var modal = bootstrap.Modal.getInstance(myModal);
-                modal.hide();
-
-                if(this.responseText == 1)
-            {
-                alert('success','Changes saved!');
-                get_general();
-            }
-            else 
-            {
-                alert('error','No changes made!');
-            }
-            }        
-
-        xhr.send('site_title='+site_title_val+'&site_about='+site_about_val+'&upd_general');
-
-        }
-
-        function upd_shutdown(val) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/settings_crud.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhr.onload = function () {
-        if (this.responseText == 1 && general_data.shutdown==0) 
-        {
-            alert("success", "Site has been shutdown!");
-        } else {
-            alert("success", "Shutdown mode off!");
-        }
-        get_general(); 
-    };
-
-    xhr.send("upd_shutdown=" + val); 
-}
-
-function get_contacts()
-{
-    let contacts_p_id = ['address','gmap', 'pn1', 'pn2','email','fb','insta','tw'];
-    let iframe = document.getElementById('iframe'); 
-           
-    let xhr= new XMLHttpRequest();
-    xhr.open("POST", "ajax/settings_crud.php", true);
-    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-
-    xhr.onload = function(){
-      contacts_data = JSON.parse(this.responseText);
-      contacts_data = Object.values(contacts_data);
-
-      //transfer data to admin panel
-    for(i=0;i<contacts_p_id.length;i++){
-      document.getElementById(contacts_p_id[i]).innerText = contacts_data[i+1];
-    }
-    iframe.src = contacts_data[9];
-    contacts_inp(contacts_data);
-    }        
-
-      xhr.send('get_contacts');
-    }
-
-    //transfer data to edit 
-    function contacts_inp(data)
-    {
-      let contacts_inp_id = ['address_inp','gmap_inp','pn1_inp','pn2_inp','email_inp','fb_inp','insta_inp','tw_inp','iframe_inp'];
-
-      for(i=0;i<contacts_inp_id.length;i++){
-        document.getElementById(contacts_inp_id[i]).value = data[i+1];
-      }
-    }
-
-    contacts_s_form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent default form submission
-    upd_contacts(); // Call the update function
-});
-
-function upd_contacts() {
-    let index = ['address', 'gmap', 'pn1', 'pn2', 'email', 'fb', 'insta', 'tw', 'iframe'];
-    let contacts_inp_id = ['address_inp', 'gmap_inp', 'pn1_inp', 'pn2_inp', 'email_inp', 'fb_inp', 'insta_inp', 'tw_inp', 'iframe_inp'];
-
-    let data_str = "";
-
-    for (let i = 0; i < index.length; i++) {
-        data_str += index[i] + "=" + encodeURIComponent(document.getElementById(contacts_inp_id[i]).value) + "&";
-    }
-    data_str += "upd_contacts";
-
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "ajax/settings_crud.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhr.onload = function () {
-        var myModal = document.getElementById('contacts-s'); 
-        var modal = bootstrap.Modal.getInstance(myModal); 
-        modal.hide(); 
-        if (this.responseText == 1) {
-            alert("success", "Changes saved!");
-            get_contacts(); 
-        } else {
-            alert("error", "No changes made!");
-        }
-    };
-
-    xhr.send(data_str); 
-}
-
-team_s_form.addEventListener('submit',function(e){
-  e.preventDefault();
-  add_member();
-});
-
-function add_member()
-{
-  let data = new FormData();
-  data.append('name',member_name_inp.value);
-  data.append('picture',member_picture_inp.files[0]);
-  data.append('add_member','');
-
-  let xhr= new XMLHttpRequest();
-            xhr.open("POST", "ajax/settings_crud.php", true);
-
-            xhr.onload = function(){
-            var myModal = document.getElementById('team-s');
-            var modal = bootstrap.Modal.getInstance(myModal);
-            modal.hide();
-
-            if(this.responseText == 'inv_img'){
-              alert('error','Only JPG and PNG images are allowed');
-            }
-            else if (this.responseText == 'inv_size'){
-              alert('error','Image should be less than 2MB!');
-            }
-            else if(this.responseText == 'upd_failed'){
-              alert('error','Image upload failed. Server Down!');
-            }
-            else{
-             alert('success','New member added!');
-             member_name_inp.value='';
-             member_picture_inp.value='';
-
-            }
-            }        
-
-        xhr.send(data);
-
-}
-
-function get_members()
-{
-  let xhr= new XMLHttpRequest();
-  xhr.open("POST", "ajax/settings_crud.php", true);
-  xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-
-    xhr.onload = function(){
-      document.getElementById('team-data').innerHTML = this.responseText;
-    }
-
-    xhr.send('get_members');
-  }
-
-
-    window.onload = function(){
-      get_general();
-      get_contacts();
-      get_members();
-    }
-
-    function rem_member(val)
-    {
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST","ajax/settings_crud.php", true);
-      xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-
-      xhr.onload = function(){
-        if(this.responseText==1) {
-          alert('success','Member removed!');
-          get_members();
-        }
-        else {
-          alert('error','Server down!');
-        }
-      }
-      xhr.send('rem_member='+val);
-    }
-        
-    </script>
+    <script src="scripts/settings.js"></script>
+    
 </body>
 </html>

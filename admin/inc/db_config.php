@@ -1,27 +1,32 @@
 <?php
 
+//database connection parameters
 $hname = 'localhost';
 $uname = 'root';
 $pass = '';
 $db = 'mywebsite';
 
+//establish connection to DB
 $con = mysqli_connect($hname, $uname, $pass, $db);
 
+// terminate execution and display an error message if the connection fails.
 if (!$con) {
     die("Cannot connect to database: " . mysqli_connect_error());
 }
 
+//santizes input data to prevent common vulnerabilities
 function filteration($data){
     foreach($data as $key => $value){
-        $value = trim($value);
-        $value = stripcslashes($value);
-        $value = strip_tags($value);
-        $value = htmlspecialchars($value);
-        $data[$key] = $value;
+        $value = trim($value); //removes whitespace 
+        $value = stripcslashes($value); // removes backslashes 
+        $value = strip_tags($value); // strip HTML and PHP tags
+        $value = htmlspecialchars($value); //convert special characters to HTML entities 
+        $data[$key] = $value; //update array with sanitized value
     } 
     return $data;
 }
 
+//retrieve all rows from the specified table.
 function selectAll($table)
 {
   $con = $GLOBALS['con'];
