@@ -7,10 +7,13 @@
  */
 
  //Datoformat
-define('DATE_FORMAT', 'Y-m-d');
+ if (!defined('DATE_FORMAT')) {
+    define('DATE_FORMAT', 'Y-m-d');
+}
 
-//Feilmeldinger
+//Inneholder standard feilmeldinger for ulike typer valideringsfeil
 $ERROR_MESSAGES = [
+    'honeypot' => "Ugyldig innsending.",
     'required' => "%s er påkrevd, feltet kan ikke være tomt.",
     'fname' => "Vennligst sjekk at fornavn ikke inneholder spesialtegn.",
     'lname' => "Vennligst sjekk at etternavn ikke inneholder spesialtegn.",
@@ -22,36 +25,47 @@ $ERROR_MESSAGES = [
 
 ];
 
-//Valideringsregler
+//Valideringsregler for ulike felt
 $RULES = [
+    'honeypot_field' => [
+        'value' => '',
+        'required' => false,
+        'sanitize_filter' => null,
+        'error_message_key' => 'honeypot',
+    ],
     'fname' => [
         'value' => '',
         'validering' => "/^[a-zA-ZæøåÆØÅ]+$/", //Ingen spesialkarakterer, kun bokstaver
         'required' => true,
+        'sanitize_filter' => FILTER_SANITIZE_STRING,
         'error_message_key' => 'fname',
     ],
     'lname' => [
         'value' => '',
-        'validering' => "/^[a-zA-ZæøåÆØÅ]+$/", //Ingen spesialkarakterer, kun bokstaver
+        'validering' => "/^[a-zA-ZæøåÆØÅ]+$/",
         'required' => true,
+        'sanitize_filter' => FILTER_SANITIZE_STRING,
         'error_message_key' => 'lname',
     ],
     'email' => [
         'value' => '',
         'validering' => FILTER_VALIDATE_EMAIL, //Filter for e-postvalidering
         'required' => true,
+        'sanitize_filter' => FILTER_SANITIZE_EMAIL,
         'error_message_key' => 'email',
     ],
     'phone' => [
         'value' => '',
         'validering' => "/^\+?[0-9\s\-\(\)]*$/", //Telefonnummer regex: tillater +()-, mellomrom, og siffer mellom 0-9
         'required' => true,
+        'sanitize_filter' => null,
         'error_message_key' => 'phone',
     ],
     'password' => [
         'value' => '',
         'validering' => "/^(?=.*[A-Z])(?=.*[0-9]).{8,}$/", //Passord regex: minst 8 tegn, og minst en stor bokstav og et siffer
         'required' => true,
+        'sanitize_filter' => null,
         'error_message_key' => 'password',
     ]
 ];

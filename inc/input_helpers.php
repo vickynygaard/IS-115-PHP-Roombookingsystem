@@ -11,7 +11,7 @@
  */
 
 //Config-fil med statiske verdier: datoformat, feilmeldinger og valideringsregler
- include('config.php');
+require_once 'config.php';
 
 /**
  * Sjekker honeyput feltet for spam bot aktivitet
@@ -28,6 +28,7 @@ function check_honeypot($honeypot_field) {
         return null;
 }
 
+
 /**
  * Funksjon som forenkler feltbehandling.
  * Den fjerner ekstra whitespace og saniterer input ved hjelp av filtere.
@@ -36,15 +37,34 @@ function check_honeypot($honeypot_field) {
  * 
  * @param string $input: Input som skal saniteres (F.eks fra brukerskjema)
  * @param int|null $sanitize_filter: PHP filteret som brukes for sanitering (f.eks FILTER_SANITIZE_EMAIL)
+ * 
+ * Global variabel:
+ * @global array $RULES: Innholder regler for saniteringsfiltre
+ * 
  * @return string Sanitert input.
  * 
  * @link https://www.php.net/manual/en/function.filter-var.php - Filter_var
  * @link https://www.php.net/manual/en/filter.filters.sanitize.php - Saniteringsfilter
  */
-function clean_input($input, $sanitize_filter = null) {
+function clean_input($field, $input) {
+    global $RULES;
+    
     $input = trim($input);
-    return $sanitize_filter ? filter_var($input, $sanitize_filter) : $input;
+
+    if (in_array($field, ['fname', 'lname'])) {
+        $input = ucwords(strtolower($input));
+    }
+    if (in_array($field, ['email'])) {
+        $input = strtolower($input);
+    }
+
+    if (isset($RULES[$field]) && isset($RULES[$field]['sanitize_filter'])) {
+        $sanitize_filter = $RULES[$field]['sanitize_filter'];
+        return filter_var($input, $sanitize_filter);
+    }
+    return $input;
 }
+
 
 /**
  * Validerer formfelt basert på de gitte valideringsreglene i $RULES
@@ -89,7 +109,7 @@ function validate_fields($fields, &$errors) {
                 $errors[$field] = $ERROR_MESSAGES[$rule['error_message_key']];
             }
             //Validering av fødselsdato
-            elseif ($field === 'birthdate') {
+            elseif ($field === 'bday') {
                 $current_date = date(DATE_FORMAT);
                 $dateObject = DateTime::createFromFormat(DATE_FORMAT, $value);
                 if (!$dateObject) {
