@@ -25,14 +25,16 @@ function check_honeypot($honeypot_field) {
     if (!empty($honeypot_field)) {
         return "Ugyldig innsending.";
     }
-    return null;
+        return null;
 }
 
 /**
  * Funksjon som forenkler feltbehandling.
  * Den fjerner ekstra whitespace og saniterer input ved hjelp av filtere.
+ * For å bruke sett $input, ($sanitize_filter er valgfri parameter, 
+ * dersom den ikke er satt vil funksjonen kun trimme input.)
  * 
- * @param string $input: Input som skal saniteres
+ * @param string $input: Input som skal saniteres (F.eks fra brukerskjema)
  * @param int|null $sanitize_filter: PHP filteret som brukes for sanitering (f.eks FILTER_SANITIZE_EMAIL)
  * @return string Sanitert input.
  * 
@@ -52,33 +54,44 @@ function clean_input($input, $sanitize_filter = null) {
  * 
  * @param array $fields: Et assosiativt array med felter som skal valideres.
  * @param array &$errors: Referer til et assosiativt array hvor validerings feilmeldingene
- * skal lagres. Nøklene korresponderer til felt navnene og values er feilmeldingene
+ * skal lagres. Nøklene korresponderer til felt navnene.
+ * 
+ * Globale variabler:
+ * @global array $RULES: Valideringsreglene for ulike felt
+ * @global array $ERROR_MESSAGES: Feilmeldinger for ulike validerignsfeil
  */
 function validate_fields($fields, &$errors) {
-    global $RULES, $ERROR_MESSAGES;
+    global $RULES, $ERROR_MESSAGES; //Finnes i inc/config.php
     
-    foreach ($fields as $field => $rule) {
+    foreach ($fields as $field => $value) {
         $value = $rule['value'];
 
-        //Sjekker om felt er required og at de er tomme
+        //Hopper over felt uten valideringsregler
+        if (!isset($RULES[$field])) {
+            continue;
+        }
+
+        //Henter valideringsregler fra globale array $RULES
+        $rule = $RULES[$field];
+
+        //Sjekker om felt er required og tomt
         if ($rule['required'] && empty($value)) {
             $errors[$field] = sprintf($ERROR_MESSAGES['required'], ucfirst($field));
         }
         //Sjekker om det er en valideringsregel for feltet
         elseif (isset($rule['validering'])) {
-            //If valideringsregelen er string (f.eks. regex)
+            //Valideringsregelen = string (f.eks. regex)
             if (is_string($rule['validering']) && !preg_match($rule['validering'], $value)) {
-                $errors[$field] = $rule['error_message'] ?: $ERROR_MESSAGES[$field] ?? 'Ugyldig verdi.';
+                $errors[$field] = $ERROR_MESSAGES[$rule['error_message_key']] ?? 'Ugyldig verdi.';
             }
-            //Dersom regelen er email filter
+            //Regel = Email filter
             elseif ($rule['validering'] === FILTER_VALIDATE_EMAIL && !filter_var($value, $rule['validering'])) {
-                $errors[$field] = $rule['error_message'] ?: $ERROR_MESSAGES['email'];
+                $errors[$field] = $ERROR_MESSAGES[$rule['error_message_key']];
             }
             //Validering av fødselsdato
             elseif ($field === 'birthdate') {
                 $current_date = date(DATE_FORMAT);
                 $dateObject = DateTime::createFromFormat(DATE_FORMAT, $value);
-                //Sjekker dato format
                 if (!$dateObject) {
                     $errors[$field] = $ERROR_MESSAGES['invalid_date_format'];
                 }
@@ -87,14 +100,13 @@ function validate_fields($fields, &$errors) {
                     $errors[$field] = $ERROR_MESSAGES['future_date'];
                 }
             }
-            //Validerer passord
+            //Passord validering
             elseif ($field === 'password' && !preg_match($rule['validering'], $value)) {
-                $errors[$field] = $rule['error_message'] ?: $ERROR_MESSAGES['password'];
+                $errors[$field] = $ERROR_MESSAGES[$rule['error_message_key']];
             }
         }
     }
 }
-
 
 /**
  * Funksjonen validerer at en oppgitt dato ikke er i fortiden.
@@ -120,5 +132,4 @@ function validate_future_date($date, $current_date, &$errors, $field_name = 'dat
         }
     }
 }
-
 ?>
