@@ -48,12 +48,6 @@ $RULES = [
         'required' => true,
         'error_message_key' => 'phone',
     ],
-    'birthdate' => [
-        'value' => '',
-        'validering' => DATE_FORMAT, //Datoformatet som brukes
-        'required' => true,
-        'error_message_key' => 'invalid_date_format',
-    ],
     'password' => [
         'value' => '',
         'validering' => "/^(?=.*[A-Z])(?=.*[0-9]).{8,}$/", //Passord regex
