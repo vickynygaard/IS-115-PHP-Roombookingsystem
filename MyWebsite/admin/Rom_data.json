@@ -1,0 +1,127 @@
+[
+    {
+        "Romnummer": "101",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "102",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "103",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "104",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "105",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "106",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "107",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "108",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "109",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "110",
+        "Type": "simple",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "201",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "202",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "203",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "204",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "205",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "206",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "207",
+        "Type": "double",
+        "Status": "Opptatt"
+    },
+    {
+        "Romnummer": "208",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "209",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "210",
+        "Type": "double",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "301",
+        "Type": "suite",
+        "Status": "Opptatt"
+    },
+    {
+        "Romnummer": "302",
+        "Type": "suite",
+        "Status": "Opptatt"
+    },
+    {
+        "Romnummer": "303",
+        "Type": "suite",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "304",
+        "Type": "suite",
+        "Status": "Opptatt"
+    },
+    {
+        "Romnummer": "305",
+        "Type": "suite",
+        "Status": "Opptatt"
+    }
+]
