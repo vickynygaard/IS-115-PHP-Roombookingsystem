@@ -2,17 +2,17 @@
     {
         "Romnummer": "101",
         "Type": "Enkeltrom",
-        "Status": "Ledig"
+        "Status": "Opptatt"
     },
     {
         "Romnummer": "102",
-        "Type": "Dobbeltrom",
-        "Status": "Ledig"
+        "Type": "Enkeltrom",
+        "Status": "Opptatt"
     },
     {
         "Romnummer": "103",
-        "Type": "Suite",
-        "Status": "Opptatt"
+        "Type": "Enkeltrom",
+        "Status": "Ledig"
     },
     {
         "Romnummer": "104",
@@ -21,12 +21,37 @@
     },
     {
         "Romnummer": "105",
-        "Type": "Dobbeltrom",
+        "Type": "Enkeltrom",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "106",
+        "Type": "Enkeltrom",
+        "Status": "Opptatt"
+    },
+    {
+        "Romnummer": "107",
+        "Type": "Enkeltrom",
+        "Status": "Opptatt"
+    },
+    {
+        "Romnummer": "108",
+        "Type": "Enkeltrom",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "109",
+        "Type": "Enkeltrom",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "110",
+        "Type": "Enkeltrom",
         "Status": "Ledig"
     },
     {
         "Romnummer": "201",
-        "Type": "Enkeltrom",
+        "Type": "Dobbeltrom",
         "Status": "Opptatt"
     },
     {
@@ -36,17 +61,67 @@
     },
     {
         "Romnummer": "203",
-        "Type": "Suite",
+        "Type": "Dobbeltrom",
         "Status": "Opptatt"
     },
     {
         "Romnummer": "204",
-        "Type": "Enkeltrom",
+        "Type": "Dobbeltrom",
         "Status": "Opptatt"
     },
     {
         "Romnummer": "205",
         "Type": "Dobbeltrom",
         "Status": "Ledig"
-    }
+    },
+    {
+        "Romnummer": "206",
+        "Type": "Dobbeltrom",
+        "Status": "Opptatt"
+    },
+    {
+        "Romnummer": "207",
+        "Type": "Dobbeltrom",
+        "Status": "Opptatt"
+    },
+    {
+        "Romnummer": "208",
+        "Type": "Dobbeltrom",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "209",
+        "Type": "Dobbeltrom",
+        "Status": "Ledig"
+    },
+    {
+        "Romnummer": "210",
+        "Type": "Dobbeltrom",
+        "Status": "Ledig"
+    },
+{
+    "Romnummer": "301",
+    "Type": "Enkeltrom",
+    "Status": "Opptatt"
+},
+{
+    "Romnummer": "302",
+    "Type": "Suite",
+    "Status": "Opptatt"
+},
+{
+    "Romnummer": "303",
+    "Type": "Suite",
+    "Status": "Ledig"
+},
+{
+    "Romnummer": "304",
+    "Type": "Suite",
+    "Status": "Ledig"
+},
+{
+    "Romnummer": "305",
+    "Type": "Suite",
+    "Status": "Ledig"
+}
 ]
