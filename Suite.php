@@ -1,3 +1,21 @@
+<?php
+// Define the path to the JSON file
+$rom_data_file = 'Admin/rom_data.json';
+
+// Load JSON data
+$rom_data = json_decode(file_get_contents($rom_data_file), true);
+
+// Calculate available suite rooms
+$total_suite_rooms = 5; // Adjust as per your data
+$available_suite_rooms = count(array_filter($rom_data, function ($room) {
+    return $room['Type'] === 'suite' && $room['Status'] === 'Ledig';
+}));
+
+// Update button and availability text
+$book_button_disabled = ($available_suite_rooms === 0) ? 'disabled' : '';
+$availability_text = ($available_suite_rooms === 0) ? 'No rooms available' : "$available_suite_rooms/$total_suite_rooms rooms available";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +83,7 @@
   <!-- Main Section -->
   <div class="hero-section">
     <div class="hero-overlay">
-      <h1>Welcome to the Luxury</h1>
+      <h1>Welcome to the Luxury Suite</h1>
     </div>
   </div>
 
@@ -92,10 +110,18 @@
         <div class="card room-card border-0 shadow">
           <img src="images/hotelbilder/sweet.jpeg" class="card-img-top" alt="Room Image">
           <div class="card-body">
-            <h4 class="card-title">Simple Room</h4>
+            <h4 class="card-title">Suite Room</h4>
             <p class="card-text">10 Adults, 8 Children</p>
             <h5>5000kr per night</h5>
-            <a href="#" class="btn btn-outline-dark btn-sm w-100 mt-2">Book Now</a>
+            <!-- Availability Text -->
+            <p class="text-muted fw-bold mb-2"><?= $availability_text; ?></p>
+            <!-- Book Now Button -->
+            <form method="POST" action="book_room.php">
+              <input type="hidden" name="room_type" value="suite">
+              <button type="submit" name="book_now" class="btn btn-outline-dark btn-sm w-100 mt-2" <?= $book_button_disabled; ?>>
+                <?= $book_button_disabled ? 'No rooms available' : 'Book Now'; ?>
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -103,6 +129,7 @@
   </div>
 
   <?php require('admin/inc/footer.php'); ?>
+
 </body>
 
 </html>

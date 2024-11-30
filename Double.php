@@ -1,10 +1,28 @@
+<?php
+// Define the path to the JSON file
+$rom_data_file = 'Admin/rom_data.json';
+
+// Load JSON data
+$rom_data = json_decode(file_get_contents($rom_data_file), true);
+
+// Calculate available rooms
+$total_double_rooms = 10; // Adjust as per your data
+$available_double_rooms = count(array_filter($rom_data, function ($room) {
+    return $room['Type'] === 'double' && $room['Status'] === 'Ledig';
+}));
+
+// Update button and availability text
+$book_button_disabled = ($available_double_rooms === 0) ? 'disabled' : '';
+$availability_text = ($available_double_rooms === 0) ? 'No rooms available' : "$available_double_rooms/$total_double_rooms rooms available";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel - Room Details</title>
+  <title>Hotel - Double Room</title>
   <?php require('admin/inc/links.php'); ?>
   <link rel="stylesheet" href="admin/css/common.css">
   <style>
@@ -65,7 +83,7 @@
   <!-- Main Section -->
   <div class="hero-section">
     <div class="hero-overlay">
-      <h1>Welcome to the room</h1>
+      <h1>Welcome to the Double Room</h1>
     </div>
   </div>
 
@@ -75,7 +93,7 @@
       <div class="col-md-8">
         <h2 class="fw-bold">Room Features</h2>
         <ul>
-          <li>3 Rooms, 1 Bathrooms, 1 Balcony</li>
+          <li>3 Rooms, 1 Bathroom, 1 Balcony</li>
           <li>2 Sofas, Queen-Size Bed</li>
           <li>Elegant Furnishing</li>
         </ul>
@@ -92,10 +110,18 @@
         <div class="card room-card border-0 shadow">
           <img src="images/hotelbilder/wood.jpeg" class="card-img-top" alt="Room Image">
           <div class="card-body">
-            <h4 class="card-title">Simple Room</h4>
+            <h4 class="card-title">Double Room</h4>
             <p class="card-text">6 Adults, 3 Children</p>
             <h5>3000kr per night</h5>
-            <a href="#" class="btn btn-outline-dark btn-sm w-100 mt-2">Book Now</a>
+            <!-- Availability Text -->
+            <p class="text-muted fw-bold mb-2"><?= $availability_text; ?></p>
+            <!-- Book Now Button -->
+            <form method="POST" action="book_room.php">
+              <input type="hidden" name="room_type" value="double">
+              <button type="submit" name="book_now" class="btn btn-outline-dark btn-sm w-100 mt-2" <?= $book_button_disabled; ?>>
+                <?= $book_button_disabled ? 'No rooms available' : 'Book Now'; ?>
+              </button>
+            </form>
           </div>
         </div>
       </div>

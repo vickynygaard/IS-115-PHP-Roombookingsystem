@@ -20,10 +20,10 @@ adminLogin();
         <div class="col-lg-10 ms-auto p-4 overflow-hidden">
 
 <?php
-// JSON filen og filbanen
+// JSON file path
 $filbane = 'rom_data.json';
 
-// Funksjon som lar lesing av matrisen
+// Function to read data from JSON file
 function lesRomData($filbane) {
     if (file_exists($filbane)) {
         $data = file_get_contents($filbane);
@@ -33,51 +33,61 @@ function lesRomData($filbane) {
     }
 }
 
-// Funksjon som lar oppdatering
+// Function to write data to JSON file
 function skrivRomData($filbane, $romdata) {
     $data = json_encode($romdata, JSON_PRETTY_PRINT);
     file_put_contents($filbane, $data);
 }
 
-// Leser json filen
+// Read JSON file
 $rom = lesRomData($filbane);
 
-// Passord som er satt
-$korrrekt_passord = '12345';
-// Kan ikke redigere som standard
-$kan_redigere = false;
+// Default settings
+$korrrekt_passord = '12345'; // Correct password
+$kan_redigere = false;       // Can edit or not
+$prompt = "Skriv inn passord for å redigere rommene."; // Default prompt
 
-// Skjekker
+// Handling password and updates
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Skjekker om passord er skrevet
     if (isset($_POST['passord'])) {
-        // Verifiserer passord
         if ($_POST['passord'] === $korrrekt_passord) {
-            $kan_redigere = true; // Vis passord er riktig kan endre
+            if (isset($_POST['confirm_password'])) {
+                // User confirmed password; allow updates
+                $kan_redigere = true;
 
-            // Funksjom som oppdaterer rommene
-            if (isset($_POST['status'])) {
-                foreach ($rom as $index => $r) {
-                    if (isset($_POST['status'][$index])) {
-                        $rom[$index]['Status'] = $_POST['status'][$index];
+                // Handle updates
+                if (isset($_POST['status'])) {
+                    foreach ($rom as $index => $r) {
+                        if (isset($_POST['status'][$index])) {
+                            $rom[$index]['Status'] = $_POST['status'][$index];
+                        }
                     }
+                    skrivRomData($filbane, $rom);
+                    $prompt = "Skriv inn passord for å redigere rommene."; // Reset to default prompt
+                    $kan_redigere = false; // Disable edit mode
+                    echo "<p style='color:green;'>Oppdateringer er lagret!</p>";
                 }
-                // Oppdaterer filene
-                skrivRomData($filbane, $rom);
-                echo "<p style='color:green;'>Oppdateringer er lagret!</p>";
+            } else {
+                // Prompt user to confirm password
+                $prompt = "Skriv passord igjen før du oppdaterer.";
+                $_SESSION['password_verified'] = true; // Temporarily store verified state
+                $kan_redigere = true; // Enable edit mode
             }
         } else {
-            echo "<p style='color:red;'>Feil passord. Du kan kun se rommene.</p>";
+            $prompt = "Feil passord. Du kan kun se rommene."; // Wrong password
+            $kan_redigere = false; // Ensure no edit access
         }
     }
 
-    // Skjekker vis logut blir trykket
+    // Reset after logout
     if (isset($_POST['logout'])) {
         $kan_redigere = false;
+        $prompt = "Skriv inn passord for å redigere rommene."; // Reset to default prompt
+        unset($_SESSION['password_verified']);
     }
 }
 
-// Deler opp rommene i etasjer 
+// Group rooms by floor
 $rom_1_etasje = array_filter($rom, fn($r) => intval($r['Romnummer']) < 200);
 $rom_2_etasje = array_filter($rom, fn($r) => intval($r['Romnummer']) >= 200 && intval($r['Romnummer']) < 300);
 $rom_3_etasje = array_filter($rom, fn($r) => intval($r['Romnummer']) >= 300);
@@ -118,19 +128,23 @@ function skrivUtTabell($romEtasje, $kan_redigere, $etasjenavn) {
     echo "</div>";
 }
 
-// Viser tabellene i et format
+// Display the password prompt and tables
 echo "<form method='post' action=''>";
-echo "<p>Skriv inn passord for å redigere rommene: <input type='password' name='passord' placeholder='Passord'></p>";
+echo "<p>$prompt</p>";
+echo "<p><input type='password' name='passord' placeholder='Passord'></p>";
+if (isset($_SESSION['password_verified'])) {
+    echo "<input type='hidden' name='confirm_password' value='1'>"; // Hidden field to confirm
+}
 echo "<div style='display: flex; gap: 20px;'>";
 
-
-// Skriver ut tabellene
+// Display tables
 skrivUtTabell($rom_1_etasje, $kan_redigere, "Første Etasje");
 skrivUtTabell($rom_2_etasje, $kan_redigere, "Andre Etasje");
 skrivUtTabell($rom_3_etasje, $kan_redigere, "Tredje Etasje");
 
 if ($kan_redigere) {
-    echo "<input type='submit' value='Oppdater & Logg ut' name='logout'>";
+    echo "<input type='submit' value='Oppdater'>";
+    echo "<input type='submit' value='Logg ut' name='logout'>";
 }
 echo "</form>";
 echo "</div>";
