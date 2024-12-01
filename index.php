@@ -43,8 +43,7 @@
                 <button type="button" class="btn btn-outline-dark shadow-none me-lg-2 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
                     Login
                 </button>
-                <a class="btn btn-outline-dark shadow-none me-lg-2 me-2" href="http://localhost/MyWebsite_2.0/guest/signup.php">Sign up</a>
-
+                <a class="btn btn-outline-dark shadow-none me-lg-2 me-2" href="http://localhost/MyWebsite/guest/signup.php">Sign up</a>
 
                 </div>
                 </div>
