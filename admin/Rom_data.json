@@ -2,126 +2,176 @@
     {
         "Romnummer": "101",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "102",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "103",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "104",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "105",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "106",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "107",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "108",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "109",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "110",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 1,
+        "max_children": 0
     },
     {
         "Romnummer": "201",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "202",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "203",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "204",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "205",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "206",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "207",
         "Type": "double",
-        "Status": "Opptatt"
+        "Status": "Opptatt",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "208",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "209",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "210",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 2,
+        "max_children": 1
     },
     {
         "Romnummer": "301",
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Opptatt",
+        "max_adults": 4,
+        "max_children": 2
     },
     {
         "Romnummer": "302",
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Opptatt",
+        "max_adults": 4,
+        "max_children": 2
     },
     {
         "Romnummer": "303",
         "Type": "suite",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "max_adults": 4,
+        "max_children": 2
     },
     {
         "Romnummer": "304",
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Opptatt",
+        "max_adults": 4,
+        "max_children": 2
     },
     {
         "Romnummer": "305",
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Opptatt",
+        "max_adults": 4,
+        "max_children": 2
     }
 ]
