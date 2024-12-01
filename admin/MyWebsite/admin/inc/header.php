@@ -29,9 +29,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="settings.php">Settings</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="Adminrom.php">Rooms</a>
-                                </li>
                             </ul>
                         </div>
                     </div>

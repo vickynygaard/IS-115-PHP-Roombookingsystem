@@ -266,18 +266,15 @@ input[type=number] {
 <div class="container">
   <div class="row">
     <div class="col-lg-4 col-md-6 my-3">
-  <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-    <img 
-      src="images/Rooms/img1.jpg"
-      class="card-img-top" 
-      style="width: 100%; height: 240px; object-fit: cover;">
-    <div class="card-body">
+      <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+        <img src="images/Rooms/img1.jpg" class="card-img-top">
+        <div class="card-body">
           <h5>Simple room</h5>
-          <h6 class="mb-4">2000kr a night</h6>
+          <h6 class="mb-4">200kr a night</h6>
           <div class="features mb-4">
             <h6 class="mb-1">Features</h6>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
-              1 Rooms 
+              2 Rooms 
             </span>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
               1 Bathroom
@@ -286,7 +283,7 @@ input[type=number] {
               1 Balcony
             </span>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
-              1 Sofa
+              3 Sofa
             </span>
           </div>
           <div class="facilities mb-4">
@@ -311,28 +308,26 @@ input[type=number] {
               <i class="bi bi-star-fill text-warning"></i>
               <i class="bi bi-star-fill text-warning"></i>
               <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
             </span>
           </div>
           <div class="d-flex justify-content-evenly">
             <a href="#" class="btn btn-sm text-white custom-bg shadow-none border">Book Now</a>
-            <a href="Simple.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-4 col-md-6 my-3">
-  <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-    <img 
-      src="images/hotelbilder/wood.jpeg" 
-      class="card-img-top" 
-      style="width: 100%; height: 240px; object-fit: cover;">
-    <div class="card-body">
-          <h5>Double room</h5>
-          <h6 class="mb-4">3000kr a night</h6>
+      <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+        <img src="images/Rooms/img1.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5>Simple room</h5>
+          <h6 class="mb-4">200kr a night</h6>
           <div class="features mb-4">
             <h6 class="mb-1">Features</h6>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
-              3 Rooms 
+              2 Rooms 
             </span>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
               1 Bathroom
@@ -341,7 +336,7 @@ input[type=number] {
               1 Balcony
             </span>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
-              2 Sofa
+              3 Sofa
             </span>
           </div>
           <div class="facilities mb-4">
@@ -371,33 +366,30 @@ input[type=number] {
           </div>
           <div class="d-flex justify-content-evenly">
             <a href="#" class="btn btn-sm text-white custom-bg shadow-none border">Book Now</a>
-            <a href="Double.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-4 col-md-6 my-3">
-  <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-    <img 
-      src="images/hotelbilder/sweet.jpeg" 
-      class="card-img-top" 
-      style="width: 100%; height: 240px; object-fit: cover;">
-    <div class="card-body">
-          <h5>Luxury Suite</h5>
-          <h6 class="mb-4">5000kr a night</h6>
+      <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+        <img src="images/Rooms/img1.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5>Simple room</h5>
+          <h6 class="mb-4">200kr a night</h6>
           <div class="features mb-4">
             <h6 class="mb-1">Features</h6>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
-              5 Rooms 
+              2 Rooms 
             </span>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
-              3 Bathroom
+              1 Bathroom
             </span>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
               1 Balcony
             </span>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
-              4 Sofa
+              3 Sofa
             </span>
           </div>
           <div class="facilities mb-4">
@@ -423,18 +415,17 @@ input[type=number] {
               <i class="bi bi-star-fill text-warning"></i>
               <i class="bi bi-star-fill text-warning"></i>
               <i class="bi bi-star-fill text-warning"></i>
-              <i class="bi bi-star-fill text-warning"></i>
             </span>
           </div>
           <div class="d-flex justify-content-evenly">
             <a href="#" class="btn btn-sm text-white custom-bg shadow-none border">Book Now</a>
-            <a href="suite.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
       </div>
     </div>
 <div class="col-lg-12 text-center mt-5">
-  <a href="rooms.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms >>></a>
+  <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms >>></a>
 </div>
   </div>
 </div>
@@ -494,7 +485,7 @@ input[type=number] {
 <div class="swiper-slide bg-white p-4">
   <div class="profile d-flex align-items-center mb-3">
     <i class="bi bi-star-fill star-icon" style="font-size: 30px"></i> 
-<h6 class="m-0 ms-2">Random user2</h6>
+<h6 class="m-0 ms-2">Random user1</h6>
 </div>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -511,7 +502,7 @@ magni tempora ea.
 <div class="swiper-slide bg-white p-4">
   <div class="profile d-flex align-items-center mb-3">
     <i class="bi bi-star-fill star-icon" style="font-size: 30px"></i> 
-<h6 class="m-0 ms-2">Random user3</h6>
+<h6 class="m-0 ms-2">Random user1</h6>
 </div>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -528,7 +519,7 @@ magni tempora ea.
 <div class="swiper-slide bg-white p-4">
   <div class="profile d-flex align-items-center mb-3">
     <i class="bi bi-star-fill star-icon" style="font-size: 30px"></i> 
-<h6 class="m-0 ms-2">Random user4</h6>
+<h6 class="m-0 ms-2">Random user1</h6>
 </div>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
