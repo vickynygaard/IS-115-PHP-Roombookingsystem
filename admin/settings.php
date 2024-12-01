@@ -232,26 +232,12 @@ adminLogin();
   <div class="card-body">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h5 class="card-title m-0">Management Team</h5>
-      <button 
-        type="button" 
-        class="btn btn-dark shadow-none btn-sm" 
-        data-bs-toggle="modal" 
-        data-bs-target="#team-s">
+      <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#team-s">
         <i class="bi bi-plus-square"></i>Add
       </button>
     </div>
     
     <div class="row" id="team-data">
-      <div class="col-md-2 mb-3">
-        <div class="card text-bg-dark">
-          <img src="..." class="card-img" alt="Team Member Image">
-          <div class="card-img-overlay">
-            <p class="card-text">
-              <small>Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
 
   </div>
