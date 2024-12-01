@@ -91,7 +91,7 @@ $availability_text = ($available_simple_rooms === 0) ? 'No rooms available' : "$
         <div class="col-md-8">
             <h2 class="fw-bold">Room Features</h2>
             <ul>
-                <li>1 Room, 1 Bathroom, 0 Balcony</li>
+                <li>1 Room, 1 Bathroom, 1 Balcony</li>
                 <li>1 Sofa, Double/Full Bed</li>
                 <li>Elegant Furnishing</li>
             </ul>

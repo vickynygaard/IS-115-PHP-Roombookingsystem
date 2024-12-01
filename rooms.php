@@ -94,7 +94,7 @@
                 <h6 class="mb-1">Features</h6>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">1 Rooms</span>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">1 Bathroom</span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">0 Balcony</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">1 Balcony</span>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">1 Sofa</span>
               </div>
               <div class="facilities mb-3">
