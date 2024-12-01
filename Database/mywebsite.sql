@@ -43,6 +43,12 @@ INSERT INTO `admin_cred` (`sr_no`, `admin_name`, `admin_pass`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Dataark for tabell 'users'
+--
+INSERT INTO `users`(`firstname`, `lastname`, `phone`, `birthday`, `hashed_password`) 
+VALUES ('[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
+
+--
 -- Tabellstruktur for tabell `carousel`
 --
 

@@ -28,13 +28,13 @@
                 <a class="nav-link active me-2" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link me-2" href="rooms.php">Rooms</a>
+                <a class="nav-link me-2" href="http://localhost/MyWebsite/homepage/rooms.php">Rooms</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link me-2" href="contact.php">Contact</a>
+                <a class="nav-link me-2" href="http://localhost/MyWebsite/homepage/contact.php">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.php">About</a>
+                <a class="nav-link" href="http://localhost/MyWebsite/homepage/about.php">About</a>
             </li>
             </ul>
 
@@ -43,7 +43,7 @@
                 <button type="button" class="btn btn-outline-dark shadow-none me-lg-2 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
                     Login
                 </button>
-                <a class="btn btn-outline-dark shadow-none me-lg-2 me-2" href="http://localhost/MyWebsite/guest/signup.php">Sign up</a>
+                <a class="btn btn-outline-dark shadow-none me-lg-2 me-2" href="http://localhost/MyWebsite/homepage/signup.php">Sign up</a>
 
                 </div>
                 </div>
