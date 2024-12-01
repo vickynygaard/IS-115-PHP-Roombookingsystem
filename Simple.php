@@ -14,6 +14,12 @@ $available_simple_rooms = count(array_filter($rom_data, function ($room) {
 // Update button and availability text
 $book_button_disabled = ($available_simple_rooms === 0) ? 'disabled' : '';
 $availability_text = ($available_simple_rooms === 0) ? 'No rooms available' : "$available_simple_rooms/$total_simple_rooms rooms available";
+
+// Get current date and time for validation
+$currentDate = new DateTime();
+$currentDateString = $currentDate->format('Y-m-d'); // For Date Picker
+$minBookingTime = $currentDate->add(new DateInterval('PT3H')); // 3 hours ahead
+$minBookingTimeString = $minBookingTime->format('H:i'); // For Time Picker
 ?>
 
 <!DOCTYPE html>
@@ -114,20 +120,65 @@ $availability_text = ($available_simple_rooms === 0) ? 'No rooms available' : "$
                     <!-- Availability Text -->
                     <p class="text-muted fw-bold mb-2"><?= $availability_text; ?></p>
                     <!-- Book Now Button -->
-                    <form method="POST" action="book_room.php">
-                        <input type="hidden" name="room_type" value="simple">
-                        <button type="submit" name="book_now" class="btn btn-outline-dark btn-sm w-100 mt-2" <?= $book_button_disabled; ?>>
-                            <?= $book_button_disabled ? 'No rooms available' : 'Book Now'; ?>
-                        </button>
-                    </form>
+                    <button id="book-now-btn" class="btn btn-outline-dark btn-sm w-100 mt-2" <?= $book_button_disabled; ?>>
+                        <?= $book_button_disabled ? 'No rooms available' : 'Book Now'; ?>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Booking Popup -->
+<div id="booking-popup" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center;">
+    <div style="background: #fff; padding: 20px; border-radius: 10px;">
+        <h3>Select your booking date and time</h3>
+        <form action="/mywebsite/admin/process_booking.php" method="POST" onsubmit="hidePopup();">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start_date" value="<?= $currentDateString; ?>" required><br><br>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end_date" value="<?= $currentDateString; ?>" required><br><br>
+
+            <label for="booking-time">Booking Time:</label>
+            <input type="time" id="booking-time" name="booking_time" value="<?= $minBookingTimeString; ?>" required><br><br>
+
+            <button type="submit" class="btn btn-outline-dark">Confirm Booking</button>
+            <button type="button" id="close-popup" class="btn btn-outline-danger">Cancel</button>
+        </form>
+    </div>
+</div>
+
 <?php require('admin/inc/footer.php'); ?>
 
-</body>
+<script>
+// Open booking popup
+document.getElementById('book-now-btn').addEventListener('click', function () {
+    document.getElementById('booking-popup').style.display = 'flex';
+});
 
+// Close the booking popup
+document.getElementById('close-popup').addEventListener('click', function () {
+    document.getElementById('booking-popup').style.display = 'none';
+});
+
+// Prevent booking within 3 hours of the current time
+document.getElementById('booking-time').addEventListener('input', function (event) {
+    const selectedTime = event.target.value;
+    const selectedDateTime = new Date("<?= $currentDateString; ?>T" + selectedTime);
+
+    const minDate = new Date("<?= $minBookingTimeString; ?>");
+    if (selectedDateTime < minDate) {
+        alert("Booking time must be at least 3 hours ahead of the current time.");
+        event.target.value = "<?= $minBookingTimeString; ?>"; // Reset to 3 hours ahead
+    }
+});
+
+// Hide the popup when the form is submitted
+function hidePopup() {
+    document.getElementById('booking-popup').style.display = 'none';
+}
+</script>
+
+</body>
 </html>

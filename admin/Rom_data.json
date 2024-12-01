@@ -1,127 +1,252 @@
 [
     {
-        "Romnummer": "101",
+        "Rom-ID": "101",
         "Type": "simple",
-        "Status": "Opptatt"
+        "Status": "Opptatt",
+        "BookingInfo": {
+            "Start_Date": "2024-12-01",
+            "End_Date": "2024-12-01",
+            "Booking_Time": "02:41"
+        }
     },
     {
-        "Romnummer": "102",
+        "Rom-ID": "102",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "103",
+        "Rom-ID": "103",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "104",
+        "Rom-ID": "104",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "105",
+        "Rom-ID": "105",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "106",
+        "Rom-ID": "106",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "107",
+        "Rom-ID": "107",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "108",
+        "Rom-ID": "108",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "109",
+        "Rom-ID": "109",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "110",
+        "Rom-ID": "110",
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "201",
+        "Rom-ID": "201",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "202",
+        "Rom-ID": "202",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "203",
+        "Rom-ID": "203",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "204",
+        "Rom-ID": "204",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "205",
+        "Rom-ID": "205",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "206",
+        "Rom-ID": "206",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "207",
+        "Rom-ID": "207",
         "Type": "double",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "208",
+        "Rom-ID": "208",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "209",
+        "Rom-ID": "209",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "210",
+        "Rom-ID": "210",
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "301",
+        "Rom-ID": "301",
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "302",
+        "Rom-ID": "302",
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "303",
+        "Rom-ID": "303",
         "Type": "suite",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "304",
+        "Rom-ID": "304",
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     },
     {
-        "Romnummer": "305",
+        "Rom-ID": "305",
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": {
+            "Start_Date": "",
+            "End_Date": "",
+            "Booking_Time": ""
+        }
     }
 ]
