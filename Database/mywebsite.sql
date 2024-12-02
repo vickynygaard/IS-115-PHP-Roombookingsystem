@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01. Des, 2024 23:02 PM
+-- Generation Time: 02. Des, 2024 21:21 PM
 -- Tjener-versjon: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -41,25 +41,6 @@ INSERT INTO `admin_cred` (`sr_no`, `admin_name`, `admin_pass`) VALUES
 (1, 'admin', '12345');
 
 -- --------------------------------------------------------
-
---
--- Tabellstruktur for tabell `users`
---
-
-CREATE TABLE `users` (
-  `email` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  `phone` varchar(20) NOT NULL,
-  `birthday` date NOT NULL,
-  `hashed_password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dataark for tabell 'users'
---
-INSERT INTO `users`(`firstname`, `lastname`, `phone`, `birthday`, `hashed_password`) 
-VALUES ('[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
 
 --
 -- Tabellstruktur for tabell `carousel`
@@ -123,7 +104,11 @@ CREATE TABLE `facilities` (
 INSERT INTO `facilities` (`id`, `icon`, `name`, `description`) VALUES
 (2, '', 'Spa', ''),
 (3, '', 'Television', ''),
-(4, '', 'Room Heater', '');
+(4, '', 'Room Heater', ''),
+(5, 'IMG_32996.svg', 'hfhhf', 'efrfd'),
+(6, 'IMG_25101.svg', 'sdsd', 'eder'),
+(7, 'IMG_44042.svg', 'sdsd', 'sdsd'),
+(8, 'IMG_99371.svg', 'sdsd', 'sadad');
 
 -- --------------------------------------------------------
 
@@ -141,12 +126,117 @@ CREATE TABLE `features` (
 --
 
 INSERT INTO `features` (`id`, `name`) VALUES
-(2, 'Balcony'),
 (3, 'kitchen'),
 (21, 'abc'),
 (23, 'eee'),
-(24, 'sdsd'),
-(25, 'hallo');
+(34, 'hallo'),
+(35, 'dfe'),
+(36, 'llll');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur for tabell `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `area` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `adult` int(11) NOT NULL,
+  `children` int(11) NOT NULL,
+  `description` varchar(350) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dataark for tabell `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `name`, `area`, `price`, `quantity`, `adult`, `children`, `description`, `status`) VALUES
+(1, 'qqq', 1, 11, 1, 1, 1, 'sdsd', 0),
+(2, 'Thea', 113, 1000, 1, 1, 0, 'hello', 1),
+(3, 'viccy', 11, 1, 1, 1, 1, 'hwllo', 1),
+(4, 'viccy', 1, 1, 1, 1, 1, '1', 1),
+(5, 'viccy', 1, 1, 1, 1, 1, 'sd', 1),
+(6, 'viccy', 1, 1, 1, 1, 1, 'sd', 1),
+(7, 'ee', 1, 1, 1, 1, 1, 'wewe', 1),
+(8, 'sas', 1, 1, 11, 1, 1, 'sdsd', 1),
+(9, 'qwd', 1, 1, 1, 1, 1, 'sdsd', 1),
+(10, 'wdwe', 1, 1, 1, 1, 1, 'sdd', 1),
+(11, 't', 1, 1, 1, 1, 1, 'sdsd', 1),
+(12, 'q', 2, 1, 2, 1, 1, 'wwe', 1),
+(13, 'qw', 1, 1, 1, 1, 1, 'sdsds', 1),
+(14, 'juhu', 1, 11, 1, 1, 1, '1dsd', 1),
+(15, 'problem', 1, 1, 1, 1, 1, '12345', 1),
+(16, 'thea', 13, 1000, 1, 1, 0, 'helloworld', 1),
+(17, 'test1', 1, 1, 1, 1, 1, 'wewe', 1),
+(18, 'ewe', 1, 1, 1, 1, 1, 'sdsd', 1),
+(19, 'yyyyy', 1, 23, 3, 1, 1, 'fdfdfd', 1),
+(20, 'eheh', 1, 1, 1, 1, 1, '232323', 1),
+(21, 'ouch', 1, 1, 1, 1, 1, 'sdsd', 1),
+(22, 'noe', 1, 1111, 1, 1, 1, 'jjj', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur for tabell `room_facilities`
+--
+
+CREATE TABLE `room_facilities` (
+  `sr_no` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `facilities_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dataark for tabell `room_facilities`
+--
+
+INSERT INTO `room_facilities` (`sr_no`, `room_id`, `facilities_id`) VALUES
+(1, 1, 3),
+(2, 2, 3),
+(3, 2, 6),
+(4, 3, 3),
+(5, 3, 7),
+(6, 4, 7),
+(7, 5, 7),
+(8, 6, 3),
+(9, 7, 3),
+(10, 8, 7),
+(11, 9, 3),
+(12, 10, 3),
+(13, 11, 3),
+(14, 12, 7),
+(15, 21, 2),
+(16, 21, 4),
+(17, 21, 6),
+(18, 22, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur for tabell `room_features`
+--
+
+CREATE TABLE `room_features` (
+  `sr_no` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `features_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dataark for tabell `room_features`
+--
+
+INSERT INTO `room_features` (`sr_no`, `room_id`, `features_id`) VALUES
+(13, 21, 3),
+(14, 21, 21),
+(15, 21, 34),
+(16, 22, 3),
+(17, 22, 23);
 
 -- --------------------------------------------------------
 
@@ -207,6 +297,13 @@ CREATE TABLE `user_queries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dataark for tabell `user_queries`
+--
+
+INSERT INTO `user_queries` (`sr_no`, `name`, `email`, `subject`, `message`, `date`, `seen`) VALUES
+(31, 'Thea Nielsen', 'thea.nielsen@outlook.com', 'eeee', 'eeeee', '2024-12-02', 1);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -239,6 +336,28 @@ ALTER TABLE `facilities`
 --
 ALTER TABLE `features`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `room_facilities`
+--
+ALTER TABLE `room_facilities`
+  ADD PRIMARY KEY (`sr_no`),
+  ADD KEY `facilities id` (`facilities_id`),
+  ADD KEY `room id` (`room_id`);
+
+--
+-- Indexes for table `room_features`
+--
+ALTER TABLE `room_features`
+  ADD PRIMARY KEY (`sr_no`),
+  ADD KEY `features id` (`features_id`),
+  ADD KEY `rm id` (`room_id`);
 
 --
 -- Indexes for table `settings`
@@ -284,13 +403,31 @@ ALTER TABLE `contact_details`
 -- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `room_facilities`
+--
+ALTER TABLE `room_facilities`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `room_features`
+--
+ALTER TABLE `room_features`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -308,7 +445,25 @@ ALTER TABLE `team_details`
 -- AUTO_INCREMENT for table `user_queries`
 --
 ALTER TABLE `user_queries`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- Begrensninger for dumpede tabeller
+--
+
+--
+-- Begrensninger for tabell `room_facilities`
+--
+ALTER TABLE `room_facilities`
+  ADD CONSTRAINT `facilities id` FOREIGN KEY (`facilities_id`) REFERENCES `facilities` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `room id` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON UPDATE NO ACTION;
+
+--
+-- Begrensninger for tabell `room_features`
+--
+ALTER TABLE `room_features`
+  ADD CONSTRAINT `features id` FOREIGN KEY (`features_id`) REFERENCES `features` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `rm id` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
