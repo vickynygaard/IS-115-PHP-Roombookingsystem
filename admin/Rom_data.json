@@ -1,127 +1,160 @@
 [
     {
-        "Romnummer": "101",
+        "Rom-ID": 101,
         "Type": "simple",
-        "Status": "Opptatt"
+        "Status": "Opptatt",
+        "BookingInfo": {
+            "Start_Date": "2024-12-02",
+            "End_Date": "2024-12-02",
+            "Booking_Time": "18:09"
+        }
     },
     {
-        "Romnummer": "102",
+        "Rom-ID": 102,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Opptatt",
+        "BookingInfo": {
+            "Start_Date": "2024-12-02",
+            "End_Date": "2024-12-02",
+            "Booking_Time": "18:12"
+        }
     },
     {
-        "Romnummer": "103",
+        "Rom-ID": 103,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "104",
+        "Rom-ID": 104,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "105",
+        "Rom-ID": 105,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "106",
+        "Rom-ID": 106,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "107",
+        "Rom-ID": 107,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "108",
+        "Rom-ID": 108,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "109",
+        "Rom-ID": 109,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "110",
+        "Rom-ID": 110,
         "Type": "simple",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "201",
+        "Rom-ID": 201,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "202",
+        "Rom-ID": 202,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "203",
+        "Rom-ID": 203,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "204",
+        "Rom-ID": 204,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "205",
+        "Rom-ID": 205,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "206",
+        "Rom-ID": 206,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "207",
+        "Rom-ID": 207,
         "Type": "double",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "208",
+        "Rom-ID": 208,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "209",
+        "Rom-ID": 209,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "210",
+        "Rom-ID": 210,
         "Type": "double",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "301",
+        "Rom-ID": 301,
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "302",
+        "Rom-ID": 302,
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "303",
+        "Rom-ID": 303,
         "Type": "suite",
-        "Status": "Ledig"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "304",
+        "Rom-ID": 304,
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
-        "Romnummer": "305",
+        "Rom-ID": 305,
         "Type": "suite",
-        "Status": "Opptatt"
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     }
 ]

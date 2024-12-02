@@ -1,265 +1,87 @@
+<?php
+require_once 'inc/input_helpers.php';
+require_once 'inc/config.php';
+
+session_start();
+
+//Initialize array where error messages are stored
+$errors = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  $_SESSION['fields'] = [
+    'checkin' => clean_input('checkin', $_POST['checkin']),
+    'checkout' => clean_input('checkout', $_POST['checkout']),
+  ];
+
+  validate_past_date($_SESSION['fields'], $errors);
+
+    if (empty($errors)) {
+      //Redirect til rooms.php if successful validation
+      header("Location: homepage/rooms.php");
+      exit;
+    }
+    else {
+      echo "error";
+    }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel</title>
+  <title>Motel</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <style>
-    
-    * {
-      font-family: 'Poppins', sans-serif;
-    }
-    .h-font {
-      font-family: 'Merienda', cursive;
-    }
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.custom-bg{
-  background-color: #2ec1ac;
-}
-.custom-bg:hover{
-  background-color: #279e8c;
-}
-
-.availability-form{
-  margin-top: -50px;
-  z-index: 2;
-  position: relative;
-}
-
-@media screen and (max-width: 575px) {
-  .availability-form{
-  margin-top: 25px;
-  padding: 0 35px;
-  }
-}
-
-.swiper-slide-image {
-  height: 900px; /* You can adjust the height as needed */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Set images to cover the container without stretching */
-.swiper-slide-image img {
-  height: 100%;
-  object-fit: cover; /* Keeps aspect ratio and crops excess parts */
-}
-
-  </style>
+  <!-- Egen CSS finnes i CSS folder -->
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="bg-light">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php">TVN HOTEL</a>
-    <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active me-2" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link me-2" href="rooms.php">Rooms</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link me-2" href="facilities.php">Facilities</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link me-2" href="contact.php">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.php">About</a>
-        </li>
-      </ul>
-<div class="d-flex">
-
-<button type="button" class="btn btn-outline-dark shadow-none me-lg-2 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-  Login
-  </button>
-  <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#registerModal">
-  Register
-  </button>
-</div>
-</div>
-</div>
-</div>
-  </nav>
-
-<!-- Modal -->
-<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form>
-      <div class="modal-header">
-        <h5 class="modal-title d-flex align-items-center">
-        <i class="bi bi-person-circle fs-3 me-2 "></i>User Login
-  </h5>
-        <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <div class="mb-3">
-    <label class="form-label">Email address</label>
-    <input type="email" class="form-control shadow-none">
-      </div>
-      <div class="mb-4">
-    <label class="form-label">Password</label>
-    <input type="password" class="form-control shadow-none">
-      </div>
-    <div class="d-flex align-items-center justify-content-between mb-2">
-      <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
-      <a href="javascript: void(0)" class="text-secondary text-decoration-none">Forgot Password </a>
-    </div>
-
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <form>
-      <div class="modal-header">
-        <h5 class="modal-title d-flex align-items-center">
-          <i class="bi bi-person-lines-fill fs-3 me-2"></i> User Registration
-        </h5>
-        <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <span class="badge rounded-pill bg-light text-dark mb-3 text-wrap lh-base">
-          Note: Your details must match with your ID (Passeword, drivers license, etc.)
-          that will be required during check-in.
-        </span>
+ <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form label">Name</label>
-              <input type="text" class="form-control shadow-none">
-            </div>
-            <div class="col-md-6 p-0 mb-3">
-              <label class="form label">Email</label>
-              <input type="email" class="form-control shadow-none">
-            </div>
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form label">Phone Number</label>
-              <input type="number" class="form-control shadow-none">
-            </div>
-            <div class="col-md-6 p-0 mb-3">
-              <label class="form label">Picture</label>
-              <input type="file" class="form-control shadow-none">
-            </div>
-            <div class="col-md-12 p-0 mb-3">
-              <label class="form label">Address</label>
-              <textarea class="form-control shadow-none" rows="1"></textarea>
-            </div>
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form label">Pincode</label>
-              <input type="number" class="form-control shadow-none">
-            </div>
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form label">Date of birth</label>
-              <input type="date" class="form-control shadow-none">
-            </div>
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form label">Password</label>
-              <input type="password" class="form-control shadow-none">
-            </div>
-            <div class="col-md-6 ps-0 mb-3">
-              <label class="form label">Confirm Password</label>
-              <input type="password" class="form-control shadow-none">
-            </div>
-            </div>
-          </div>
-      </div>
-      <div class="text-center my-1">
-        <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
-      </div>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
+        <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php">TVN MOTEL</a>
+        <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active me-2" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link me-2" href="http://localhost/MyWebsite/homepage/rooms.php">Rooms</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link me-2" href="http://localhost/MyWebsite/homepage/contact.php">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/MyWebsite/homepage/about.php">About</a>
+            </li>
+            </ul>
 
-<!-- Swiper Section -->
-<div class="container-fluid px-lg-4 mt-4">
-  <div class="swiper swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide swiper-slide-image">
-        <img src="images/hotelbilder/orange.jpeg" class="w-100 d-block"/> 
-      </div>
-      <div class="swiper-slide swiper-slide-image">
-        <img src="images/hotelbilder/sweet.jpeg" class="w-100 d-block"/>
-      </div>
-      <div class="swiper-slide swiper-slide-image">
-        <img src="images/hotelbilder/wood.jpeg" class="w-100 d-block" />
-      </div>
-      <div class="swiper-slide swiper-slide-image">
-        <img src="images/hotelbilder/deilig.jpeg" class="w-100 d-block"/>
-      </div>
-    </div>
+            <div class="d-flex">
 
-</div>
+                <button type="button" class="btn btn-outline-dark shadow-none me-lg-2 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Login
+                </button>
+                <a class="btn btn-outline-dark shadow-none me-lg-2 me-2" href="http://localhost/MyWebsite/homepage/signup.php">Sign up</a>
 
-<!--Check availability form -->
-<div class="container availability-form">
-  <div class="row">
-    <div class="col-lg-12 bg-white shadow p-4 rounded">
-      <h5 class="mb-4">Check Booking Availability</h5>
-      <form>
-        <div class="row align-items-end">
-          <div class="col lg-3 mb-3">
-            <label class="form-label" style="font-weight:500;">Check-in</label>
-            <input type="date" class="form-control shadow-none">
-          </div>
-          <div class="col lg-3 mb-3">
-            <label class="form-label" style="font-weight:500;">Check-out</label>
-            <input type="date" class="form-control shadow-none">
-          </div>
-          <div class="col-lg-3 mb-3">
-            <label class="form-label" style="font-weight:500;">Adult</label>
-            <select class="form-select shadow-none">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          </select>
-          </div>
-          <div class="col-lg-2 mb-3">
-            <label class="form-label" style="font-weight:500;">Children</label>
-            <select class="form-select shadow-none">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          </select>
-          </div>
-          <div class="col-lg-1 mb-lg-3 mt-2">
-            <button type="submit" class="btn text-white shadow-none custom-bg">Submit</button>
-          </div>
+                </div>
+                </div>
+            </div>
         </div>
-      </form>
-    </div>
-  </div>
-</div>
+    </nav>
 
+<<<<<<< HEAD
 <!---Our Rooms-->
 <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">OUR ROOMS</h2>
 
@@ -586,119 +408,96 @@ $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
       
         ?>
         
+=======
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form>
+        <div class="modal-header">
+          <h5 class="modal-title d-flex align-items-center">
+          <i class="bi bi-person-circle fs-3 me-2 "></i>User Login
+    </h5>
+          <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <div class="mb-3">
+      <label class="form-label">Email address</label>
+      <input type="email" name="email" class="form-control shadow-none">
+        </div>
+        <div class="mb-4">
+      <label class="form-label">Password</label>
+      <input type="password" name="password" class="form-control shadow-none">
+        </div>
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
+        <a href="javascript: void(0)" class="text-secondary text-decoration-none">Forgot Password </a>
+>>>>>>> 6e3eebbeb78ec9d06aca3df5f4969e27f8156688
       </div>
 
-      <!-- Follow Us Section -->
-      <div class="bg-white p-4 rounded mb-4">
-        <h5>Follow us</h5>
-        <?php
-        if($contact_r['tw']!=''){
-          echo<<<data
-          <a href="$contact_r[tw]" class="d-inline-block mb-3">
-              <span class="badge bg-light text-dark fs-6 p-2">
-                <i class="bi bi-twitter me-1"></i>Twitter
-              </span>
-            </a>
-            </br>
-          data;
-        }
-        ?>
-        
-        <a href="<?php echo $contact_r['fb']?>" class="d-inline-block mb-3">
-          <span class="badge bg-light text-dark fs-6 p-2">
-            <i class="bi bi-facebook me-1"></i>Facebook
-          </span>
-        </a>
-        <br>
-        <a href="<?php echo $contact_r['insta']?>" class="d-inline-block mb-3">
-          <span class="badge bg-light text-dark fs-6 p-2">
-            <i class="bi bi-instagram me-1"></i>Instagram
-          </span>
-        </a>
+        </div>
+        </form>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container-fluid bg-white mt-5">
-<div class="row">
-  <div class="col-lg-4 p-4">
-    <h3 class="h-font fw-bold fs-3">TVN HOTEL</h3>
+  <?php require ('html/swiper.php'); //Swiper section - pictures front page?>
 
-</div>
-<div class="col-lg-4 p-4">
+  <!--Check availability form -->
+  <div class="container availability-form">
+    <div class="row">
+      <div class="col-lg-12 bg-white shadow p-4 rounded">
+        <h5 class="mb-4">Check Booking Availability</h5>
+        <form method="POST" action="">
+          <div class="row align-items-end">
+            <div class="col lg-3 mb-3">
+              <label class="form-label" style="font-weight:500;">Check-in</label>
+              <input type="date" name="checkin" class="form-control shadow-none">
+                <?php if (isset($errors['checkin'])): ?>
+                <span class="error"><?= $errors['checkin'] ?></span><?php endif; ?>
+            </div>
+            <div class="col lg-3 mb-3">
+              <label class="form-label" style="font-weight:500;">Check-out</label>
+              <input type="date" name="checkout" class="form-control shadow-none">
+                <?php if (isset($errors['checkout'])): ?>
+                <span class="error"><?= $errors['checkout'] ?></span><?php endif; ?>
+            </div>
+            <div class="col-lg-3 mb-3">
+              <label class="form-label" style="font-weight:500;">Adults</label>
+              <select name="adults" class="form-select shadow-none">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            </select>
+            </div>
+            <div class="col-lg-2 mb-3">
+              <label class="form-label" style="font-weight:500;">Children</label>
+              <select name="children" class="form-select shadow-none">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            </select>
+            </div>
+            <div class="col-lg-1 mb-lg-3 mt-2">
+              <button type="submit" class="btn text-white shadow-none custom-bg">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-</div>
-<div class="col-lg-4 p-4">
-</div>
-
-    
-    
-</div>
-</div>
+  <?php require('html/ourRooms.php'); //Our Rooms?>
+  <?php require('html/reachUs.php'); //Reach Us
+        require('html/tvn.php');?>
 
 
-
-
-
-<br><br><br>
-<br><br><br>
-
-
-<!-- Swiper and Bootstrap JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<!-- Swiper Initialization Script -->
-<script>
-  var swiper = new Swiper(".swiper-container", {
-    spaceBetween: 30,
-    effect: "fade",
-    loop: true,
-    autoplay: {
-      delay: 3500,
-      disableOnInteraction: false,
-    }
-  });
-
-var swiper = new Swiper(".swiper-testimonials" , {
-  effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true, 
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  slidesPerView: "auto",
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0, 
-    depth: 100,
-    modifier: 1, 
-    slideShadows: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-    },
-    640: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 1,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  }
-});
-</script>
+  <!-- Swiper and Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
 </html>
-

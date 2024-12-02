@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel - ROOMS</title>
-  <?php require('admin/inc/links.php');  echo '<!-- links.php loaded -->'; ?>
+  <?php require('../admin/inc/links.php');  echo '<!-- links.php loaded -->'; ?>
   <style>
     /* Added styles to fix alignment */
     .container > .row {
@@ -24,7 +23,7 @@
 
 <body class="bg-light">
 
-  <?php require('inc/header.php'); ?>
+  <?php require('navbar.php'); ?>
 
   <div class="my-5 px-4">
     <h2 class="fw-bold h-font text-center">OUR ROOMS</h2>
@@ -37,7 +36,6 @@
       <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 px-lg-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
           <div class="container-fluid flex-lg-column align-items-stretch">
-            <h4 class="mt-2">FILTERS</h4>
             <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#filterDropdown"
               aria-controls="filterDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -49,21 +47,6 @@
                 <input type="date" class="form-control shadow-none mb-3">
                 <label class="form-label">Check-out</label>
                 <input type="date" class="form-control shadow-none">
-              </div>
-              <div class="border bg-light p-3 rounded mb-3">
-                <h5 class="mb-3" style="font-size: 18px;">FACILITIES</h5>
-                <div class="mb-2">
-                  <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
-                  <label class="form-check-label" for="f1">Facility one</label>
-                </div>
-                <div class="mb-2">
-                  <input type="checkbox" id="f2" class="form-check-input shadow-none me-1">
-                  <label class="form-check-label" for="f2">Facility two</label>
-                </div>
-                <div class="mb-2">
-                  <input type="checkbox" id="f3" class="form-check-input shadow-none me-1">
-                  <label class="form-check-label" for="f3">Facility three</label>
-                </div>
               </div>
               <div class="border bg-light p-3 rounded mb-3">
                 <h5 class="mb-3" style="font-size: 18px;">GUESTS</h5>
@@ -87,16 +70,16 @@
         <div class="card mb-4 border-0 shadow">
           <div class="row g-0 p-3 align-items-center">
             <div class="col-md-5 mb-lg-0 mb-md-0">
-              <img src="images/Rooms/img1.jpg" class="img-fluid rounded">
+              <img src="../images/Rooms/img1.jpg" class="img-fluid rounded">
             </div>
             <div class="col-md-5 px-lg-3 px-md-3 px-0">
               <h5 class="mb-3">Simple Room</h5>
               <div class="features mb-3">
                 <h6 class="mb-1">Features</h6>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">1 Rooms</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">2 Rooms</span>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">1 Bathroom</span>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">1 Balcony</span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">1 Sofa</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">3 Sofa</span>
               </div>
               <div class="facilities mb-3">
                 <h6 class="mb-1">Facilities</h6>
@@ -107,30 +90,30 @@
               </div>
               <div class="guests mb-3">
                 <h6 class="mb-1">Guests</h6>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">2 Adults</span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">2 Children</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">5 Adults</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">4 Children</span>
               </div>
             </div>
             <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
               <h6 class="mb-4">2000kr per night</h6>
               <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
-              <a href="Simple.php" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+              <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
             </div>
           </div>
         </div>
         <div class="card mb-4 border-0 shadow">
           <div class="row g-0 p-3 align-items-center">
             <div class="col-md-5 mb-lg-0 mb-md-0">
-              <img src="images/hotelbilder/wood.jpeg" class="img-fluid rounded">
+              <img src="../images/Rooms/img1.jpg" class="img-fluid rounded">
             </div>
             <div class="col-md-5 px-lg-3 px-md-3 px-0">
-              <h5 class="mb-3">Double Room</h5>
+              <h5 class="mb-3">Simple Room</h5>
               <div class="features mb-3">
                 <h6 class="mb-1">Features</h6>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">3 Rooms</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">2 Rooms</span>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">1 Bathroom</span>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">1 Balcony</span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">2 Sofa</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">3 Sofa</span>
               </div>
               <div class="facilities mb-3">
                 <h6 class="mb-1">Facilities</h6>
@@ -141,30 +124,30 @@
               </div>
               <div class="guests mb-3">
                 <h6 class="mb-1">Guests</h6>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">6 Adults</span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">3 Children</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">5 Adults</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">4 Children</span>
               </div>
             </div>
             <div class="col-md-2 text-center">
-              <h6 class="mb-4">3000kr per night</h6>
+              <h6 class="mb-4">2000kr per night</h6>
               <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
-              <a href="Double.php" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+              <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
             </div>
           </div>
         </div>
         <div class="card mb-4 border-0 shadow">
           <div class="row g-0 p-3 align-items-center">
             <div class="col-md-5 mb-lg-0 mb-md-0">
-              <img src="images/hotelbilder/sweet.jpeg" class="img-fluid rounded">
+              <img src="../images/Rooms/img1.jpg" class="img-fluid rounded">
             </div>
             <div class="col-md-5 px-lg-3 px-md-3 px-0">
-              <h5 class="mb-3">Suite</h5>
+              <h5 class="mb-3">Simple Room</h5>
               <div class="features mb-3">
                 <h6 class="mb-1">Features</h6>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">5 Rooms</span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">3 Bathroom</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">2 Rooms</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">1 Bathroom</span>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">1 Balcony</span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">4 Sofa</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">3 Sofa</span>
               </div>
               <div class="facilities mb-3">
                 <h6 class="mb-1">Facilities</h6>
@@ -175,14 +158,14 @@
               </div>
               <div class="guests mb-3">
                 <h6 class="mb-1">Guests</h6>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">10 Adults</span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">8 Children</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">5 Adults</span>
+                <span class="badge rounded-pill bg-light text-dark text-wrap">4 Children</span>
               </div>
             </div>
             <div class="col-md-2 text-center">
-              <h6 class="mb-4">5000kr per night</h6>
+              <h6 class="mb-4">2000kr per night</h6>
               <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
-              <a href="suite.php" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+              <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
             </div>
           </div>
         </div>
@@ -191,141 +174,6 @@
     </div>
   </div>
 
-  <?php require('admin/inc/footer.php'); ?>
-
 </body>
 
 </html>
-=======
-<?php
-require('../inc/db_config.php');
-require('../inc/essentials.php');
-adminLogin();
-
-/* // Debugging: Log input data
-file_put_contents('debug.log', json_encode($_POST, JSON_PRETTY_PRINT), FILE_APPEND);
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
-    exit;
-} 
-*/
-
-if (isset($_POST['add_room'])) {
-    $features = filteration(json_decode($_POST['features']));
-    $facilities = filteration(json_decode($_POST['facilities']));
-
-    $frm_data = filteration($_POST);
-    $flag = 0;
-
-    // Insert room data
-    $q1 = "INSERT INTO `rooms`(`name`, `area`, `price`, `quantity`, `adult`, `children`, `description`) VALUES (?,?,?,?,?,?,?)";
-    $values = [
-        $frm_data['name'], 
-        $frm_data['area'], 
-        $frm_data['price'], 
-        $frm_data['quantity'], 
-        $frm_data['adult'], 
-        $frm_data['children'], 
-        $frm_data['desc']
-    ];
-
-    if (insert($q1, $values, 'siiiiis')) {
-        $flag = 1;
-    }
-
-    $room_id = mysqli_insert_id($con);
-
-    // Insert room facilities
-    $q2 = "INSERT INTO `room_facilities`(`room_id`, `facilities_id`) VALUES (?,?)";
-    if ($stmt = mysqli_prepare($con, $q2)) {
-        foreach ($facilities as $f) {
-            mysqli_stmt_bind_param($stmt, 'ii', $room_id, $f);
-            mysqli_stmt_execute($stmt);
-        }
-        mysqli_stmt_close($stmt);
-    } else {
-        $flag = 0;
-        die('Query cannot be prepared - insert');
-    }
-
-    // Insert room features
-    $q3 = "INSERT INTO `room_features`(`room_id`, `features_id`) VALUES (?,?)";
-    if ($stmt = mysqli_prepare($con, $q3)) {
-        foreach ($features as $f) {
-            mysqli_stmt_bind_param($stmt, 'ii', $room_id, $f);
-            mysqli_stmt_execute($stmt);
-        }
-        mysqli_stmt_close($stmt);
-    } else {
-        $flag = 0;
-        die('Query cannot be prepared - insert');
-    }
-
-    if ($flag) {
-        echo 1;
-    } else {
-        echo 0;
-    }
-}
-
-if (isset($_POST['get_all_rooms']))
-{
-    $res = selectAll('rooms');
-    $i=1;
-
-    $data="";
-
-    while($row = mysqli_fetch_assoc($res))
-    {
-        if($row['status']==1){
-          $status = "<button onclick='toggle_status($row[id],0)'class='btm btn-dark btn-sm shadow-none'>active</button>"; 
-        }
-        else {
-            $status = "<button onclick='toggle_status($row[id],1)' class='btm btn-warning btn-sm shadow-none'>inactive</button>
-            ";  
-        }
-
-
-    $data .= "
-    <tr class='align-middle'>
-        <td>$i</td>
-        <td>$row[name]</td>
-        <td>$row[area] sq. ft.</td>
-        <td>
-            <span class='badge rounded-pill bg-light text-dark'>
-                Adult: $row[adult]
-            </span><br>
-            <span class='badge rounded-pill bg-light text-dark'>
-                Children: $row[children]
-            </span>
-        </td>
-        <td>$row[price]</td>
-        <td>$row[quantity]</td>
-        <td>$status</td>
-         <td>Buttons</td>
-    </tr>
-    ";
-    $i++;
-    }
-    echo $data;
-}
-
-if (isset($_POST['toggle_status']))
-{
-    $frm_data = filteration($_POST);
-
-    $q= "UPDATE `rooms` SET `status`=? WHERE `id`=?";
-    $v = [$frm_data['value'],$frm_data['toggle_status']];
-
-    if(update($q,$v,'ii')){
-        echo 1;
-    }
-    else{
-        echo 0;
-    }
-    }
-
-
-?>
->>>>>>> 6e3eebbeb78ec9d06aca3df5f4969e27f8156688

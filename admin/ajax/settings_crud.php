@@ -1,12 +1,10 @@
 <?php
 
-header('Content-Type: application/json');
-error_reporting(E_ERROR | E_PARSE);
 require('../inc/db_config.php');
 require('../inc/essentials.php');
 adminLogin();
 
-// Fetch general settings from the `settings` table
+
 if (isset($_POST['get_general'])) {
     $q = "SELECT * FROM `settings` WHERE `sr_no`=?";
     $values = [1];
@@ -20,7 +18,6 @@ if (isset($_POST['get_general'])) {
     exit;
 }
 
-// Update `site_title` and `site_about` fields in the `settings` table
 if (isset($_POST['upd_general'])) {
     $frm_data = filteration($_POST);
 
@@ -42,19 +39,15 @@ if (isset($_POST['upd_shutdown'])) {
     exit;
 }
 
-// Fetch contact details from the `contact_details` table
 if (isset($_POST['get_contacts'])) {
     $q = "SELECT * FROM `contact_details` WHERE `sr_no`=?";
     $values = [1];
     $res = select($q, $values, "i");
-    if ($res) {
-        $data = mysqli_fetch_assoc($res);
-        echo json_encode($data);
-    } else {
-        echo json_encode(['error' => 'Query failed']);
-    }
-    exit;
+    $data = mysqli_fetch_assoc($res);
+    $json_data = json_encode($data);
+    echo $json_data;
 }
+
 
 
 // Update contact details in the `contact_details` table
@@ -86,18 +79,20 @@ if (isset($_POST['add_member'])) {
     $img_r = uploadImage($_FILES['picture'], ABOUT_FOLDER);
 
     if ($img_r == 'inv_img') {
-        echo json_encode(["error" => "Invalid image format"]);
-    } elseif ($img_r == 'inv_size') {
-        echo json_encode(["error" => "Image size exceeds 2MB"]);
-    } elseif ($img_r == 'upd_failed') {
-        echo json_encode(["error" => "Failed to upload image"]);
-    } else {
+        echo $img_r;
+    } 
+    elseif ($img_r == 'inv_size'){
+        echo $img_r;
+    } 
+    elseif ($img_r == 'upd_failed'){
+        echo $img_r;
+    } 
+    else {
         $q = "INSERT INTO `team_details`(`name`, `picture`) VALUES (?, ?)";
         $values = [$frm_data['name'], $img_r];
         $res = insert($q, $values, 'ss');
-        echo $res ? json_encode(["success" => "Team member added successfully"]) : json_encode(["error" => "Insert failed"]);
+        echo $res;
     }
-    exit;
 }
 
 if (isset($_POST['get_members'])) {
