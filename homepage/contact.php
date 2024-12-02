@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel - CONTACT</title>
-  <?php require('../admin/inc/links.php'); ?>
-  <link rel="stylesheet" href="admin/css/common.css">
+  <title>Motel - CONTACT</title>
+  <?php require('../admin/inc/links.php'); 
+        require('../admin/inc/db_config.php');?>
+  <link rel="stylesheet" href="../admin/css/common.css">
 </head>
 
 <body class="bg-light">
@@ -26,8 +27,6 @@
 $contact_q= "SELECT * FROM `contact_details` WHERE `sr_no`=?";
 $values = [1];
 $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
-?>
-
 ?>
 
 
@@ -128,7 +127,7 @@ if(isset($_POST['send']))
 }
 ?>
 
-<?php require('admin/inc/footer.php'); ?>
+<?php require('../admin/inc/footer.php'); ?>
 
 </body>
 </html>
