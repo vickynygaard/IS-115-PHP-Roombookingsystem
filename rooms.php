@@ -10,11 +10,11 @@
     /* Added styles to fix alignment */
     .container > .row {
       display: flex;
-      align-items: flex-start; /* Ensures the columns align at the top */
+      align-items: flex-start;
     }
 
     .col-lg-3, .col-lg-9 {
-      padding: 0; /* Removes extra padding to align visually */
+      padding: 0;
     }
   </style>
   <link rel="stylesheet" href="admin/css/common.css">
@@ -23,7 +23,7 @@
 
 <body class="bg-light">
 
-  <?php require('navbar.php'); ?>
+<?php require('admin/inc/links.php'); ?>
 
   <div class="my-5 px-4">
     <h2 class="fw-bold h-font text-center">OUR ROOMS</h2>
@@ -113,7 +113,7 @@
             <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
               <h6 class="mb-4">2000kr per night</h6>
               <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
-              <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+              <a href="simple.php" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
             </div>
           </div>
         </div>

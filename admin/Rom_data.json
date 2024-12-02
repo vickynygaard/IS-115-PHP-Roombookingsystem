@@ -1,411 +1,206 @@
 [
     {
-<<<<<<< main
         "Rom-ID": 101,
         "Type": "simple",
         "Status": "Opptatt",
+        "Adults": 2,
+        "Children": 2,
         "BookingInfo": {
             "Start_Date": "2024-12-02",
             "End_Date": "2024-12-02",
-            "Booking_Time": "18:09"
+            "Booking_Time": "21:39"
         }
     },
     {
         "Rom-ID": 102,
         "Type": "simple",
-        "Status": "Opptatt",
-        "BookingInfo": {
-            "Start_Date": "2024-12-02",
-            "End_Date": "2024-12-02",
-            "Booking_Time": "18:12"
-        }
+        "Status": "Ledig",
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 103,
         "Type": "simple",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 104,
         "Type": "simple",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 105,
         "Type": "simple",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 106,
         "Type": "simple",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 107,
         "Type": "simple",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 108,
         "Type": "simple",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 109,
         "Type": "simple",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 110,
         "Type": "simple",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 2,
+        "Children": 2,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 201,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 202,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 203,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 204,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 205,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 206,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 207,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 208,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 209,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 210,
         "Type": "double",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 6,
+        "Children": 3,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 301,
         "Type": "suite",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 10,
+        "Children": 8,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 302,
         "Type": "suite",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 10,
+        "Children": 8,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 303,
         "Type": "suite",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 10,
+        "Children": 8,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 304,
         "Type": "suite",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
+        "Adults": 10,
+        "Children": 8,
+        "BookingInfo": "N/A"
     },
     {
         "Rom-ID": 305,
         "Type": "suite",
         "Status": "Ledig",
-        "BookingInfo": "N\/A"
-=======
-        "Rom-ID": "101",
-        "Type": "simple",
-        "Status": "Opptatt",
-        "BookingInfo": {
-            "Start_Date": "2024-12-01",
-            "End_Date": "2024-12-01",
-            "Booking_Time": "02:41"
-        }
-    },
-    {
-        "Rom-ID": "102",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "103",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "104",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "105",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "106",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "107",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "108",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "109",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "110",
-        "Type": "simple",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "201",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "202",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "203",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "204",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "205",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "206",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "207",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "208",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "209",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "210",
-        "Type": "double",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "301",
-        "Type": "suite",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "302",
-        "Type": "suite",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "303",
-        "Type": "suite",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "304",
-        "Type": "suite",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
-    },
-    {
-        "Rom-ID": "305",
-        "Type": "suite",
-        "Status": "Ledig",
-        "BookingInfo": {
-            "Start_Date": "",
-            "End_Date": "",
-            "Booking_Time": ""
-        }
->>>>>>> Sworn
+        "Adults": 10,
+        "Children": 8,
+        "BookingInfo": "N/A"
     }
 ]

@@ -270,7 +270,7 @@ input[type=number] {
         <img src="images/Rooms/img1.jpg" class="card-img-top">
         <div class="card-body">
           <h5>Simple room</h5>
-          <h6 class="mb-4">200kr a night</h6>
+          <h6 class="mb-4">2000kr a night</h6>
           <div class="features mb-4">
             <h6 class="mb-1">Features</h6>
             <span class="badge rounded-pill bg-light text-dark text-wrap">
@@ -313,7 +313,7 @@ input[type=number] {
           </div>
           <div class="d-flex justify-content-evenly">
             <a href="#" class="btn btn-sm text-white custom-bg shadow-none border">Book Now</a>
-            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+            <a href="Simple.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
       </div>
@@ -322,7 +322,7 @@ input[type=number] {
       <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
         <img src="images/Rooms/img1.jpg" class="card-img-top">
         <div class="card-body">
-          <h5>Simple room</h5>
+          <h5>Double room</h5>
           <h6 class="mb-4">200kr a night</h6>
           <div class="features mb-4">
             <h6 class="mb-1">Features</h6>
@@ -366,7 +366,7 @@ input[type=number] {
           </div>
           <div class="d-flex justify-content-evenly">
             <a href="#" class="btn btn-sm text-white custom-bg shadow-none border">Book Now</a>
-            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+            <a href="Double.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
       </div>

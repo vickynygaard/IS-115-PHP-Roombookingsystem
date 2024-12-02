@@ -26,6 +26,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="rooms.php">Rooms</a>
                                 <li class="nav-item">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="adminrom.php">Current Rooms</a>
+                                <li class="nav-item">
                                     <a class="nav-link text-white" href="user_queries.php">User Queries</a>
                                 </li>
                                 <li class="nav-item">
