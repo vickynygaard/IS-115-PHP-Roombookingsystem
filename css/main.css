@@ -1,0 +1,57 @@
+ 
+* {
+    font-family: 'Poppins', sans-serif;
+}
+.h-font {
+    font-family: 'Merienda', cursive;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+}
+    
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.custom-bg{
+  background-color: #2ec1ac;
+}
+.custom-bg:hover{
+  background-color: #279e8c;
+}
+
+.availability-form{
+  margin-top: -50px;
+  z-index: 2;
+  position: relative;
+}
+
+@media screen and (max-width: 575px) {
+  .availability-form{
+  margin-top: 25px;
+  padding: 0 35px;
+  }
+}
+
+.swiper-slide-image {
+  height: 900px; /* You can adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Set images to cover the container without stretching */
+.swiper-slide-image img {
+  height: 100%;
+  object-fit: cover; /* Keeps aspect ratio and crops excess parts */
+}
+
+.error {
+  color: red;
+}
+.requirement_psw {
+  text-align: left;
+}
