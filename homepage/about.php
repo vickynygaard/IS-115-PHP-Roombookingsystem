@@ -43,7 +43,7 @@ require('navbar.php');
            </p> 
         </div>
        <div class="col-lg-5 col-md-5 mb-4 order-lg-2 order-md-2 order-1">
-           <img src="images/About/" height="200px" width="300px" alt="">
+           <img src="../images/About/" height="200px" width="300px" alt="">
        </div>
     </div>
 </div>
@@ -53,28 +53,28 @@ require('navbar.php');
     <div class="row">
         <div class="col-lg-3 col-md-6 mb-4 px-4"> 
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/Facilities/hotel.png" width="130px">
+                <img src="../images/Facilities/hotel.png" width="130px">
                 <h5 class="mt-3">25 ROOMS</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4"> 
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/About/customers.webp" width="130px">
+                <img src="../images/About/customers.webp" width="130px">
                 <h5 class="mt-3">200+ CUSTOMERS</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4"> 
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/About/customer.png" width="130px">
+                <img src="../images/About/customer.png" width="130px">
                 <h5 class="mt-3"> REVIEWS</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4"> 
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/About/staff.png" width="130px">
+                <img src="../images/About/staff.png" width="130px">
                 <h5 class="mt-3">30 STAFF MEMBERS</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
