@@ -27,13 +27,13 @@
                 <a class="nav-link active me-2" aria-current="page" href="http://localhost/MyWebsite/index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link me-2" href="rooms.php">Rooms</a>
+                <a class="nav-link me-2" href="http://localhost/MyWebsite/homepage/rooms.php">Rooms</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link me-2" href="contact.php">Contact</a>
+                <a class="nav-link me-2" href="http://localhost/MyWebsite/homepage/contact.php">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.php">About</a>
+                <a class="nav-link" href="http://localhost/MyWebsite/homepage/about.php">About</a>
             </li>
             </ul>
 
