@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel - ABOUT</title>
+  <title>Motel - About</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <?php include ('admin/inc/links.php'); ?>
+  <?php include ('../admin/inc/links.php'); ?>
   <style>
     .box {
       border-top: var(--teal) !important;
@@ -17,7 +17,7 @@
 <body class="bg-light">
 
 <?php 
-require('inc/header.php'); 
+require('navbar.php'); 
 
 ?>
 
@@ -43,7 +43,7 @@ require('inc/header.php');
            </p> 
         </div>
        <div class="col-lg-5 col-md-5 mb-4 order-lg-2 order-md-2 order-1">
-           <img src="images/About/" height="200px" width="300px" alt="">
+           <img src="../images/About/" height="200px" width="300px" alt="">
        </div>
     </div>
 </div>
@@ -53,28 +53,28 @@ require('inc/header.php');
     <div class="row">
         <div class="col-lg-3 col-md-6 mb-4 px-4"> 
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/Facilities/hotel.png" width="130px">
+                <img src="../images/Facilities/hotel.png" width="130px">
                 <h5 class="mt-3">25 ROOMS</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4"> 
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/About/customers.webp" width="130px">
+                <img src="../images/About/customers.webp" width="130px">
                 <h5 class="mt-3">200+ CUSTOMERS</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4"> 
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/About/customer.png" width="130px">
+                <img src="../images/About/customer.png" width="130px">
                 <h5 class="mt-3"> REVIEWS</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4"> 
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/About/staff.png" width="130px">
+                <img src="../images/About/staff.png" width="130px">
                 <h5 class="mt-3">30 STAFF MEMBERS</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
@@ -88,7 +88,7 @@ require('inc/header.php');
     <div class="swiper mySwiper">
         <div class="swiper-wrapper mb-5">
             <?php
-            require_once('admin/inc/essentials.php'); 
+            require_once('../admin/inc/essentials.php'); 
             $about_r = selectAll('team_details');
             $path = ABOUT_IMG_PATH . '/';
             
@@ -108,7 +108,7 @@ require('inc/header.php');
     </div>
 </div>
 
-<?php require('admin/inc/footer.php'); ?>
+<?php require('../admin/inc/footer.php'); ?>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 

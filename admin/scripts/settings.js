@@ -130,8 +130,8 @@ function get_contacts()
     }
 
     contacts_s_form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent default form submission
-    upd_contacts(); // Call the update function
+    e.preventDefault(); 
+    upd_contacts(); 
 });
 
 function upd_contacts() {
@@ -197,8 +197,9 @@ function add_member()
              alert('success','New member added!');
              member_name_inp.value='';
              member_picture_inp.value='';
-
+             get_members();
             }
+            
             }        
 
         xhr.send(data);
@@ -242,5 +243,7 @@ function get_members()
       }
       xhr.send('rem_member='+val);
     }
-        
+    
+    
+    
    

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30. Nov, 2024 15:16 PM
+-- Generation Time: 01. Des, 2024 23:02 PM
 -- Tjener-versjon: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,7 @@ CREATE TABLE `admin_cred` (
 --
 
 INSERT INTO `admin_cred` (`sr_no`, `admin_name`, `admin_pass`) VALUES
-(2, 'admin', '12345');
+(1, 'admin', '12345');
 
 -- --------------------------------------------------------
 
@@ -47,20 +47,16 @@ INSERT INTO `admin_cred` (`sr_no`, `admin_name`, `admin_pass`) VALUES
 --
 
 CREATE TABLE `carousel` (
-  `id` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 0,
-  `created_at` datetime DEFAULT current_timestamp()
+  `sr_no` int(11) NOT NULL,
+  `image` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dataark for tabell `carousel`
 --
 
-INSERT INTO `carousel` (`id`, `image`, `title`, `description`, `status`, `created_at`) VALUES
-(1, 'IMG_49480.png', NULL, NULL, 0, '2024-11-30 12:55:26');
+INSERT INTO `carousel` (`sr_no`, `image`) VALUES
+(1, 'IMG_68981.jpg');
 
 -- --------------------------------------------------------
 
@@ -86,7 +82,52 @@ CREATE TABLE `contact_details` (
 --
 
 INSERT INTO `contact_details` (`sr_no`, `address`, `gmap`, `pn1`, `pn2`, `email`, `fb`, `insta`, `tw`, `iframe`) VALUES
-(1, 'Campus Kristiansand, Universitetsveien 25, 4630 Kr', 'https://maps.google.com/maps/embed?pb=1m18!1m12!1m3!1d2104.5696878963612d8.00045', 113, 112, 'ask.tvnhotel@gmail.comm', 'https://www.facebook.com', 'instagram.com/tvnhotelhello', 'twitter.com/tvnhotel', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2104.597152652407!2d8.0030351!3d58.16384609999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4638025378c67fc7%3A0xfd4fe654e2fbbb6a!2sUniversitetet%20i%20Agder!5e0!3m2!1sno!2sno!4v1732541890793!5m2!1sno!2sno');
+(1, 'Campus Kristiansand', 'https://maps.google.com/maps/embed?pb=1m18!1m12!1m3!1d2104.5696878963612d8.00045', 33043578, 33057354, 'ask.tvnhotel@gm.com', 'https://www.facebook.com/', 'https://www.instagram.com/', 'https://x.com/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2104.597152652407!2d8.0030351!3d58.16384609999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4638025378c67fc7%3A0xfd4fe654e2fbbb6a!2sUniversitetet%20i%20Agder!5e0!3m2!1sno!2sno!4v1732541890793!5m2!1sno!2sno');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur for tabell `facilities`
+--
+
+CREATE TABLE `facilities` (
+  `id` int(11) NOT NULL,
+  `icon` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dataark for tabell `facilities`
+--
+
+INSERT INTO `facilities` (`id`, `icon`, `name`, `description`) VALUES
+(2, '', 'Spa', ''),
+(3, '', 'Television', ''),
+(4, '', 'Room Heater', '');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur for tabell `features`
+--
+
+CREATE TABLE `features` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dataark for tabell `features`
+--
+
+INSERT INTO `features` (`id`, `name`) VALUES
+(2, 'Balcony'),
+(3, 'kitchen'),
+(21, 'abc'),
+(23, 'eee'),
+(24, 'sdsd'),
+(25, 'hallo');
 
 -- --------------------------------------------------------
 
@@ -106,7 +147,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`sr_no`, `site_title`, `site_about`, `shutdown`) VALUES
-(1, 'TVN.Webdevhello', 'Site about infoh', 0);
+(1, 'TVN.Webdev', 'Site about info', 0);
 
 -- --------------------------------------------------------
 
@@ -126,7 +167,9 @@ CREATE TABLE `team_details` (
 
 INSERT INTO `team_details` (`sr_no`, `name`, `picture`) VALUES
 (1, 'Thea Nielsen', 'IMG_99606.jpg'),
-(15, 'Sworn', 'IMG_35111.png');
+(2, 'Victoria Nygård', 'IMG_67794.png'),
+(13, 'Nam', 'IMG_87510.webp'),
+(15, 'Random Person', 'IMG_46192.png');
 
 -- --------------------------------------------------------
 
@@ -136,20 +179,13 @@ INSERT INTO `team_details` (`sr_no`, `name`, `picture`) VALUES
 
 CREATE TABLE `user_queries` (
   `sr_no` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `subject` varchar(255) DEFAULT NULL,
-  `message` text NOT NULL,
-  `date` datetime DEFAULT current_timestamp(),
-  `seen` tinyint(1) DEFAULT 0
+  `name` varchar(50) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `subject` varchar(200) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `seen` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dataark for tabell `user_queries`
---
-
-INSERT INTO `user_queries` (`sr_no`, `name`, `email`, `subject`, `message`, `date`, `seen`) VALUES
-(1, 'Nam', 'martinngo69@gmail.com', 'God', 'Dog', '2024-11-30 12:54:46', 0);
 
 --
 -- Indexes for dumped tables
@@ -165,13 +201,25 @@ ALTER TABLE `admin_cred`
 -- Indexes for table `carousel`
 --
 ALTER TABLE `carousel`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`sr_no`);
 
 --
 -- Indexes for table `contact_details`
 --
 ALTER TABLE `contact_details`
   ADD PRIMARY KEY (`sr_no`);
+
+--
+-- Indexes for table `facilities`
+--
+ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `features`
+--
+ALTER TABLE `features`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `settings`
@@ -199,19 +247,31 @@ ALTER TABLE `user_queries`
 -- AUTO_INCREMENT for table `admin_cred`
 --
 ALTER TABLE `admin_cred`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `contact_details`
 --
 ALTER TABLE `contact_details`
   MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `facilities`
+--
+ALTER TABLE `facilities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `features`
+--
+ALTER TABLE `features`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -223,13 +283,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `team_details`
 --
 ALTER TABLE `team_details`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user_queries`
 --
 ALTER TABLE `user_queries`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

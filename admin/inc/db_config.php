@@ -1,65 +1,42 @@
 <?php
 
-// Database connection parameters
+//database connection parameters
 $hname = 'localhost';
 $uname = 'root';
 $pass = '';
 $db = 'mywebsite';
 
-// Establish connection to the database
+//establish connection to DB
 $con = mysqli_connect($hname, $uname, $pass, $db);
 
-// Terminate execution and display an error message if the connection fails
+// terminate execution and display an error message if the connection fails.
 if (!$con) {
     die("Cannot connect to database: " . mysqli_connect_error());
 }
 
-// Automatically create the `carousel` table if it does not exist
-$table_query = "CREATE TABLE IF NOT EXISTS `carousel` (
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `image` VARCHAR(255) NOT NULL,
-    `title` VARCHAR(255),
-    `description` TEXT,
-    `status` TINYINT(1) DEFAULT 0,
-    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
-)";
-if (!mysqli_query($con, $table_query)) {
-    die("Error creating `carousel` table: " . mysqli_error($con));
-}
-
-// Sanitize input data to prevent common vulnerabilities
-function filteration($data) {
-    foreach ($data as $key => $value) {
-        $value = trim($value); // Removes whitespace
-        $value = stripslashes($value); // Removes backslashes
-        $value = strip_tags($value); // Strips HTML and PHP tags
-        $value = htmlspecialchars($value); // Converts special characters to HTML entities
-        $data[$key] = $value; // Update array with sanitized value
-    }
+//santizes input data to prevent common vulnerabilities
+function filteration($data){
+    foreach($data as $key => $value){
+        $value = trim($value); //removes whitespace 
+        $value = stripcslashes($value); // removes backslashes 
+        $value = strip_tags($value); // strip HTML and PHP tags
+        $value = htmlspecialchars($value); //convert special characters to HTML entities 
+        $data[$key] = $value; //update array with sanitized value
+    } 
     return $data;
 }
 
-// Retrieve all rows from the specified table
-function selectAll($table) {
-    $con = $GLOBALS['con'];
-    
-    // Check if the table exists
-    $checkTable = mysqli_query($con, "SHOW TABLES LIKE '$table'");
-    if (mysqli_num_rows($checkTable) == 0) {
-        die("Table '$table' does not exist.");
-    }
-
-    // Fetch all rows from the table
-    $res = mysqli_query($con, "SELECT * FROM $table");
-    if (!$res) {
-        die("Query failed: " . mysqli_error($con));
-    }
-
-    return $res;
+//retrieve all rows from the specified table.
+function selectAll($table)
+{
+  $con = $GLOBALS['con'];
+  $res = mysqli_query($con,"SELECT * FROM $table");
+  return $res;
 }
 
-// Prepared SELECT query
-function select($sql, $values, $datatypes) {
+
+function select($sql, $values, $datatypes)
+{
     $con = $GLOBALS['con'];
     if ($stmt = mysqli_prepare($con, $sql)) {
         mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
@@ -76,8 +53,8 @@ function select($sql, $values, $datatypes) {
     }
 }
 
-// Prepared UPDATE query
-function update($sql, $values, $datatypes) {
+function update($sql, $values, $datatypes)
+{
     $con = $GLOBALS['con'];
     if ($stmt = mysqli_prepare($con, $sql)) {
         mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
@@ -94,8 +71,8 @@ function update($sql, $values, $datatypes) {
     }
 }
 
-// Prepared INSERT query
-function insert($sql, $values, $datatypes) {
+function insert($sql, $values, $datatypes)
+{
     $con = $GLOBALS['con'];
     if ($stmt = mysqli_prepare($con, $sql)) {
         mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
@@ -112,8 +89,8 @@ function insert($sql, $values, $datatypes) {
     }
 }
 
-// Prepared DELETE query
-function delete($sql, $values, $datatypes) {
+function delete($sql, $values, $datatypes)
+{
     $con = $GLOBALS['con'];
     if ($stmt = mysqli_prepare($con, $sql)) {
         mysqli_stmt_bind_param($stmt, $datatypes, ...$values);

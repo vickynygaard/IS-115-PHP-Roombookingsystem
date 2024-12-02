@@ -1,16 +1,4 @@
 <?php
-
-/*///
-Enable admin to 
-* Mark all as read
-* or mark spesivi queries as read using query's sr_no¨
-* delete queries
-* delete spesific query using sr_no
-
-
-
-////*/
-
 require('inc/essentials.php');
 require('inc/db_config.php');
 
@@ -49,13 +37,6 @@ if(isset($_GET['del']))
     $frm_data = filteration($_GET);
 
     if($frm_data['del']=='all'){
-        $q= "DELETE FROM `user_queries`";
-      if(mysqli_query($con,$q)){
-        alert('success','All data delayed!');
-       }
-       else{
-        alert('error','Operation failed!');
-       }
 
     }
     else{
@@ -102,7 +83,7 @@ if(isset($_GET['del']))
                     <i class="bi bi-trash"></i> Delete all</a>
                 </div>
                   
-                    <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
+                    <div class="table-responsive-md" style="height: 150px; overflow-y: scroll;">
                         <table class="table table-hover border">
                             <thead class="sticky-top">
                                 <tr class="bg-dark text-light">
@@ -125,7 +106,7 @@ if(isset($_GET['del']))
                             {
                                 $seen='';
                                 if($row['seen']!=1){
-                                    $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Mark as read </a>  <br>";
+                                    $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Mark as read </a>";
                                 }
                                 $seen.="<a href='?del=$row[sr_no]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
                             

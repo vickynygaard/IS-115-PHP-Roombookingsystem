@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel - CONTACT</title>
-  <?php require('admin/inc/links.php'); ?>
-  <link rel="stylesheet" href="admin/css/common.css">
+  <title>Motel - CONTACT</title>
+  <?php require('../admin/inc/links.php'); 
+        require('../admin/inc/db_config.php');?>
+  <link rel="stylesheet" href="../admin/css/common.css">
 </head>
 
 <body class="bg-light">
 
-<?php require('inc/header.php'); ?> 
+<?php require('navbar.php'); ?> 
 
 <div class="my-5 px-4">
     <h2 class="fw-bold h-font text-center">CONTACT US</h2>
@@ -26,8 +27,6 @@
 $contact_q= "SELECT * FROM `contact_details` WHERE `sr_no`=?";
 $values = [1];
 $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
-?>
-
 ?>
 
 
@@ -111,24 +110,24 @@ $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
 </div>
 
 <?php 
-if(isset($_POST['send']))
-{
+if(isset($_POST['send'])) {
     $frm_data = filteration($_POST);
 
-    $q= "INSERT INTO `user_queries`(`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)";
+    $q = "INSERT INTO `user_queries`(`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)";
     $values = [$frm_data['name'],$frm_data['email'],$frm_data['subject'],$frm_data['message']];
-
-    $res=insert($q,$values,'ssss');
-    if($res==1){
-        alert('success','Mail sent!');
+    
+    $res = insert($q, $values, 'ssss');
+    if ($res == 1) {
+        echo "<script>alert('Mail sent!');</script>";
     }
-    else{
-        alert('error','Server Down! Try again later');
+    else {
+        echo "<script>alert('Server Down! Try again later');</script>";
     }
 }
 ?>
 
-<?php require('admin/inc/footer.php'); ?>
+
+<?php require('../admin/inc/footer.php'); ?>
 
 </body>
 </html>

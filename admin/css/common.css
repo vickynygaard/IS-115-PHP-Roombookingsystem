@@ -55,7 +55,7 @@
     overflow: hidden;
     
   }
-
+y
    /* Set images to cover the slide area */
    .swiper-slide img {
     width: 100%;
@@ -75,17 +75,18 @@
     height: 100%;
     z-index: 11;
   }
+  
 
   @media screen and (max-width: 991px) {
-    body #dashboard-menu {
+    #dashboard-menu {
       height: auto;
       width: 100%;
     }
-  }
   
   #main-content{
     margin-top: 60px;
   }
+}
 
   .swiper-slide {
     display: flex;
