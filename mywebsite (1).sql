@@ -304,6 +304,25 @@ INSERT INTO `user_queries` (`sr_no`, `name`, `email`, `subject`, `message`, `dat
 (31, 'Thea Nielsen', 'thea.nielsen@outlook.com', 'eeee', 'eeeee', '2024-12-02', 1);
 
 --
+-- Tabellstruktur for tabell `users`
+--
+
+CREATE TABLE `users` (
+  `email` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `birthday` date NOT NULL,
+  `hashed_password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dataark for tabell 'users'
+--
+INSERT INTO `users`(`firstname`, `lastname`, `phone`, `birthday`, `hashed_password`) 
+VALUES ('[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
+
+--
 -- Indexes for dumped tables
 --
 
