@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Motel - About</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <?php include ('../admin/inc/links.php'); ?>
+  <?php include ('../admin/inc/links.php'); 
+        require_once ('../admin/inc/db_config.php')?>
   <style>
     .box {
       border-top: var(--teal) !important;
@@ -108,7 +109,7 @@ require('navbar.php');
     </div>
 </div>
 
-<?php require('../admin/inc/footer.php'); ?>
+<?php require_once('../admin/inc/footer.php'); ?>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
