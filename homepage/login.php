@@ -2,24 +2,32 @@
 require_once '../inc/login_functions.php';
 require_once '../admin/inc/db_config.php';
 
+    session_start();
+
     //Initialize array hvor eventuelle feilmeldinger lagres
     $errors = [];
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        //Authenticate_user() checks login credentials - see login_functions.php
-        if (authenticate_user($email, $password, $errors)) {
-            //If login is successful, start session and redirect
-            session_start();
-            $_SESSION['user_email'] = $email;  //Stores user-email in session
-            echo "Successfull login";
-            header("Location: ../index.php");  //Redirect back to homepage
-            exit;
-        }
+    //If the user is already signed in
+    if (isset($_SESSION['user_email'])) {
+        header("Location: guest.php"); //Redirect to another site
+        exit;
     }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            //Authenticate_user() checks login credentials - see login_functions.php
+            if (authenticate_user($email, $password, $errors)) {
+                //If login is successful, start session and redirect
+                session_start();
+                $_SESSION['user_email'] = $email;  //Stores user-email in session
+                $_SESSION['welcome_message'] = "You are signed in as " . $email;
+                echo "Successfull login";
+                header("Location: guest.php"); exit; //Redirect
+            }
+        }
 
 ?>
 <!DOCTYPE html>
