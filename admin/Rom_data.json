@@ -4,20 +4,16 @@
         "Type": "simple",
         "Status": "Opptatt",
         "BookingInfo": {
-            "Start_Date": "2024-12-02",
-            "End_Date": "2024-12-02",
-            "Booking_Time": "18:09"
+            "Start_Date": "2024-12-10",
+            "End_Date": "2024-12-21",
+            "Booking_Time": "07:32"
         }
     },
     {
         "Rom-ID": 102,
         "Type": "simple",
-        "Status": "Opptatt",
-        "BookingInfo": {
-            "Start_Date": "2024-12-02",
-            "End_Date": "2024-12-02",
-            "Booking_Time": "18:12"
-        }
+        "Status": "Ledig",
+        "BookingInfo": "N\/A"
     },
     {
         "Rom-ID": 103,
