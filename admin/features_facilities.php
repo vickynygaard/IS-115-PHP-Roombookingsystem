@@ -1,3 +1,9 @@
+
+<?php 
+require('inc/header.php'); 
+require('inc/db_config.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,25 +12,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Features & Facilities</title>
     <?php require('inc/links.php'); ?>
-    <link rel="stylesheet" href="css/common.css">
 </head>
 <body class="bg-light">
 
-    <!-- Header -->
-    <?php require('inc/header.php'); ?>
+<?php require('inc/header.php'); ?>
 
-    <!-- Main Content -->
-    <div class="container-fluid" id="main-content">
-        <div class="row">
-            <div class="col-lg-10 ms-auto p-4 overflow-hidden">
+
+<div class="container-fluid" id="main-content">
+    <div class="row">
+    <div class="col-lg-10 ms-auto p-4 overflow-hidden">
                 <h3 class="mb-4">Features & Facilities</h3>
-
-<!-- Features Section -->
 <div class="card border-0 shadow-sm mb-4">
     <div class="card-body">
 
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <h5 class="card-title m-0">Management Team</h5>
+            <h5 class="card-title m-0">Features</h5>
             <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#feature-s">
                 <i class="bi bi-plus-square"></i> Add
             </button>
@@ -138,121 +140,5 @@
 
 
     <?php require('inc/scripts.php'); ?>
-
-    <script>
-        let feature_s_form = document.getElementById('feature_s_form');
-        let facility_s_form = document.getElementById('facility_s_form');
-
-        feature_s_form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            add_feature();
-        });
-
-        function add_feature() {
-            let data = new FormData();
-            data.append('name', feature_s_form.elements['feature_name'].value);
-            data.append('add_feature', '');
-
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajax/features_facilities.php", true);
-
-            xhr.onload = function() {
-                var myModal = document.getElementById('feature-s');
-                var modal = bootstrap.Modal.getInstance(myModal);
-                modal.hide();
-
-                if (this.responseText == 1) {
-                    alert('success', 'New feature added!');
-                    feature_s_form.reset();
-                    get_features();
-                } else {
-                    alert('error', 'Server Down!');
-                }
-            };
-            xhr.send(data);
-        }
-
-        function get_features()
-        {
-        let xhr= new XMLHttpRequest();
-        xhr.open("POST", "ajax/features_facilities.php", true);
-        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-
-            xhr.onload = function(){
-            document.getElementById('features-data').innerHTML = this.responseText;
-            }
-
-            xhr.send('get_features');
-        }
-
-            function rem_feature(val)
-        {
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST","ajax/features_facilities.php", true);
-        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-
-        xhr.onload = function(){
-            if(this.responseText==1) {
-            alert('success','Feature removed!');
-            get_features();
-            }
-            else if(this.responseText == 'room_added'){
-                alert('error','Feature is  added in room!');   
-            }
-            else {
-            alert('error','Server down!');
-            }
-        }
-        xhr.send('rem_feature='+val);
-        } 
-
-
-        facility_s_form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            add_facility();
-        });
-
-        function add_facility() {
-            let data = new FormData();
-            data.append('name', facility_s_form.elements['facility_name'].value);
-            data.append('icon', facility_s_form.elements['facility_icon'].files[0]);
-            data.append('desc', facility_s_form.elements['facility_desc'].value);
-            data.append('add_facility', '');
-
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajax/features_facilities.php", true);
-
-            xhr.onload = function() {
-                var myModal = document.getElementById('facility-s');
-                var modal = bootstrap.Modal.getInstance(myModal);
-                modal.hide();
-
-                if(this.responseText == 'inv_img'){
-              alert('error','Only SVG images are allowed');
-            }
-            else if (this.responseText == 'inv_size'){
-              alert('error','Image should be less than 1MB!');
-            }
-            else if(this.responseText == 'upd_failed'){
-              alert('error','Image upload failed. Server Down!');
-            }
-            else{
-             alert('success','New facility added!');
-             facility_s_form.reset();
-             //get_members();
-            }
-            
-            }        
-
-            };
-            xhr.send(data);
-
-            window.onload = function(){
-                get_features();
-            }
-
-
-    </script>
-
-</body>
-</html>
+<script src="scripts/features_facilities.js"></script>
+   
