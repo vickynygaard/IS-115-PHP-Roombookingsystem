@@ -100,24 +100,25 @@ if (isset($_POST['get_members'])) {
     $output = "";
 
     while ($row = mysqli_fetch_assoc($res)) {
-        $output .= <<<data
+        $output .= <<<HTML
         <div class="col-md-3 mb-3">
             <div class="card bg-dark text-white">
                 <img src="../images/about/{$row['picture']}" class="card-img img-fluid rounded" alt="{$row['name']}">
                 <div class="card-img-overlay text-end">
-                    <button type="button" onclick="rem_member($row[sr_no])" class="btn btn-danger btn-sm shadow-none" onclick="delete_member({$row['id']})">
+                    <button type="button" onclick="rem_member({$row['sr_no']})" class="btn btn-danger btn-sm shadow-none">
                         <i class="bi bi-trash"></i> Delete
                     </button>
                 </div>
                 <p class="card-text text-center px-3 py-2">{$row['name']}</p>
             </div>
         </div>
-        data;
+        HTML;
     }
 
     echo $output;
     exit;
 }
+
 
 if(isset($_POST['rem_member']))
 {

@@ -1,16 +1,5 @@
 <?php
 
-/*///
-Enable admin to 
-* Mark all as read
-* or mark spesivi queries as read using query's sr_no¨
-* delete queries
-* delete spesific query using sr_no
-
-
-
-////*/
-
 require('inc/essentials.php');
 require('inc/db_config.php');
 

@@ -79,21 +79,41 @@ function uploadSVGImage($image, $folder)
     $valid_mime = ['image/svg+xml'];
     $img_mime = $image['type'];
 
+    // Validate MIME type
     if (!in_array($img_mime, $valid_mime)) {
         return 'inv_img'; // Invalid image format
-    } elseif (($image['size'] / (1024 * 1024))>1) {
-        return 'inv_size'; // File size exceeds 1MB
+    }
+
+    // Validate file size
+    if (($image['size'] / (1024 * 1024)) > 1) { // Limit: 1MB
+        return 'inv_size';
+    }
+
+    $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+    $rname = 'IMG_' . random_int(11111, 99999) . ".$ext";
+    $img_path = UPLOAD_IMAGE_PATH . $folder . $rname;
+
+    // Ensure folder exists
+    if (!file_exists(UPLOAD_IMAGE_PATH . $folder)) {
+        mkdir(UPLOAD_IMAGE_PATH . $folder, 0777, true);
+    }
+
+    // Validate temporary file existence
+    if (!file_exists($image['tmp_name'])) {
+        error_log("Temporary file not found: " . $image['tmp_name']);
+        return 'upd_failed';
+    }
+    if (!is_readable($image['tmp_name'])) {
+        error_log("Temporary file is not readable: " . $image['tmp_name']);
+        return 'upd_failed';
+    }
+
+    // Attempt to move the file
+    if (move_uploaded_file($image['tmp_name'], $img_path)) {
+        return $rname;
     } else {
-        $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
-        $rname = 'IMG_' . random_int(11111, 99999) . ".$ext";
-
-        $img_path = UPLOAD_IMAGE_PATH . $folder . $rname;
-
-        if (move_uploaded_file($image['tmp_name'], $img_path)) {
-            return $rname;
-        } else {
-            return 'upd_failed'; // File upload failed
-        }
+        error_log("Failed to move uploaded file: From {$image['tmp_name']} to $img_path");
+        return 'upd_failed';
     }
 }
 
