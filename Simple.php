@@ -27,7 +27,7 @@ $minBookingTimeString = $minBookingTime->format('H:i');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel - Simple Room</title>
-    <?php require('admin/inc/links.php'); ?>
+    <?php require('homepage/navbar.php'); ?>
     <link rel="stylesheet" href="admin/css/common.css">
     <style>
         .navbar {
@@ -81,8 +81,6 @@ $minBookingTimeString = $minBookingTime->format('H:i');
 </head>
 
 <body class="bg-light">
-
-<?php require('inc/header.php'); ?>
 
 <div class="hero-section">
     <div class="hero-overlay">

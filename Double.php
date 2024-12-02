@@ -23,7 +23,7 @@ $availability_text = ($available_double_rooms === 0) ? 'No rooms available' : "$
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel - Double Room</title>
-  <?php require('admin/inc/links.php'); ?>
+  <?php require('homepage/navbar.php'); ?>
   <link rel="stylesheet" href="admin/css/common.css">
   <style>
     .navbar {
@@ -77,8 +77,6 @@ $availability_text = ($available_double_rooms === 0) ? 'No rooms available' : "$
 </head>
 
 <body class="bg-light">
-
-<?php require('inc/header.php'); ?>
 
   <!-- Main Section -->
   <div class="hero-section">
